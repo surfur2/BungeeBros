@@ -117,6 +117,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
         type: 2}
+      propertyPath: playerToTeam.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
       propertyPath: playerDivingArt.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -178,7 +183,7 @@ Prefab:
     - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
         type: 2}
       propertyPath: totalCordLength
-      value: 150
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 114218940832067258, guid: 7d2e9e713b880124d966f58a298af2c3,
         type: 2}
@@ -209,6 +214,21 @@ Prefab:
       value: 
       objectReference: {fileID: 1612279578735766, guid: d95d863d3a7d88d48b71e53740f55d3f,
         type: 2}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerToTeam.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerToTeam.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerToTeam.Array.data[3]
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d2e9e713b880124d966f58a298af2c3, type: 2}
   m_IsPrefabParent: 0
@@ -351,3 +371,5 @@ MonoBehaviour:
   downTileSpeed: 0.3
   currentCameraState: 0
   levelGenerator: {fileID: 1337400735}
+  winnerIndex: 0
+  furthestIndex: 0

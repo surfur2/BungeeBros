@@ -69,7 +69,7 @@ public class BungeeLevelGenerator : MonoBehaviour
         height = height < 1 ? 1 : height;
 
         //How many cliff tiles
-        numCliffs = (int)(height / Globals.UNITY_UNIT_TO_METERS) + 1;
+        numCliffs = (int)(height) + 1;
 
         // Create container gameobject
         GameObject worldContainer = new GameObject("WorldContainer");
@@ -98,7 +98,7 @@ public class BungeeLevelGenerator : MonoBehaviour
         waterObject = Instantiate(waterPrefab);
 
         Vector3 newWaterPos = waterObject.transform.position;
-        newWaterPos.y = (bridgeYLocation - height + waterYLocation) / (Globals.UNITY_UNIT_TO_METERS / 10.8f);
+        newWaterPos.y = bridgeYLocation - (height * Globals.UNITY_UNIT_TO_METERS) + waterYLocation;
         waterObject.transform.position = newWaterPos;
 
         waterObject.transform.parent = worldContainer.transform;
