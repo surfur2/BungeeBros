@@ -21,11 +21,12 @@ public class PlayerController : MonoBehaviour {
     // My subobjects
     private PlayerBungeeControl myBungeeController;
     private Jump myJumpController;
-
+    private RopeControl myRopeController;
 
     public float FillBarValue { get { return fillBarValue; } }
     // My components
     private SpriteRenderer playerSpriteRenderer;
+    private Rigidbody2D myRigidBody;
 
     private void Awake()
     {
@@ -33,8 +34,10 @@ public class PlayerController : MonoBehaviour {
 
         myBungeeController = GetComponent<PlayerBungeeControl>();
         myJumpController = GetComponent<Jump>();
+        myRopeController = GetComponentInChildren<RopeControl>();
 
         playerSpriteRenderer = GetComponent<SpriteRenderer>();
+        myRigidBody = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -56,8 +59,7 @@ public class PlayerController : MonoBehaviour {
         restingSprite = _restingSprite;
         divingSprite = _divingSprite;
 
-        playerSpriteRenderer.sprite = restingSprite;
-        harnessSpriteRenderer.sprite = forwardHarness;
+        ChangeToForwardHarness();
     }
 
     public int GetPlayerNumber()
@@ -96,14 +98,9 @@ public class PlayerController : MonoBehaviour {
     {
         myJumpController.PlayerJump();
         playerJumped = true;
-        
-        // Change the sprites for the player when they dive
-        playerSpriteRenderer.sprite = divingSprite;
-        harnessSpriteRenderer.sprite = backHarness;
 
-        //Offset to make the harness line up with the dive sprite
-        // TODO: this is shit and needs to not be a magic number
-        harnessSpriteRenderer.transform.localPosition = new Vector3( 0.22f, -1.57f, harnessSpriteRenderer.transform.position.z);
+        // Change the sprites for the player when they dive
+        ChangeToBackwardHarness();     
     }
 
     public void SetCordLength(float cordLen)
@@ -114,5 +111,33 @@ public class PlayerController : MonoBehaviour {
     public float GetCordLength()
     {
         return myBungeeController.LengthOfCord;
+    }
+
+    public void PlayerHitWater(Vector3 wavePosition)
+    {
+        ChangeToForwardHarness();
+        myRopeController.TurnOffRope();
+        myBungeeController.SetPlayerGuess(MiniGameManager.Instance.MaxCordLength);
+        myRigidBody.simulated = false;
+    }
+
+    private void ChangeToForwardHarness()
+    {
+        playerSpriteRenderer.sprite = restingSprite;
+        harnessSpriteRenderer.sprite = forwardHarness;
+
+        //Offset to make the harness line up with the dive sprite
+        // TODO: this is shit and needs to not be a magic number
+        harnessSpriteRenderer.transform.localPosition = new Vector3(0.0f, 0.0f, harnessSpriteRenderer.transform.position.z);
+    }
+
+    private void ChangeToBackwardHarness()
+    {
+        playerSpriteRenderer.sprite = divingSprite;
+        harnessSpriteRenderer.sprite = backHarness;
+
+        //Offset to make the harness line up with the dive sprite
+        // TODO: this is shit and needs to not be a magic number
+        harnessSpriteRenderer.transform.localPosition = new Vector3(0.22f, -1.57f, harnessSpriteRenderer.transform.position.z);
     }
 }

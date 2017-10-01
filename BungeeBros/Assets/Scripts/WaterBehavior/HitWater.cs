@@ -15,6 +15,7 @@ public class HitWater : MonoBehaviour {
         {
             myPatricleSystem.transform.position = player.transform.position;
             myPatricleSystem.Emit(numberOfParticles);
+            player.PlayerHitWater(gameObject.transform.position);
         }
     }
 }

@@ -22,4 +22,9 @@ public class RopeControl : MonoBehaviour {
         myLineRenderer.SetPositions(lineRendererPoints);
         myLineRenderer.sortingOrder = 2;
     }
+
+    public void TurnOffRope()
+    {
+        myLineRenderer.enabled = false;
+    }
 }
