@@ -220,31 +220,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerToTeam.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerDivingArt.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerRestingArt.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: backHarnessTints.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: frontHarnessTints.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4123731103167560, guid: 7d2e9e713b880124d966f58a298af2c3, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -277,89 +252,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+    - target: {fileID: 114216068388152554, guid: 7d2e9e713b880124d966f58a298af2c3,
         type: 2}
-      propertyPath: harnessTints.Array.data[1]
+      propertyPath: timerPrefab
       value: 
-      objectReference: {fileID: 21300000, guid: c5e399a3fc1c9c740964321a6f6f6ef8,
-        type: 3}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+      objectReference: {fileID: 1612279578735766, guid: d95d863d3a7d88d48b71e53740f55d3f,
         type: 2}
-      propertyPath: harnessTints.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: 79dcba629b237a849a5dec3b88e0eeb9,
-        type: 3}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: harnessTints.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: 16ae8a3c44038034c8c7f4ff6b662173,
-        type: 3}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerRestingArt.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: d27d14eaae857c747a5117836d89c9cc,
-        type: 3}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerDivingArt.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: dafe3c66f78dae14fa1879a66768a404,
-        type: 3}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerToTeam.Array.data[3]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: backHarnessTints.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: 39b270d1fb5212a4492752f8e3d49855,
-        type: 3}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: backHarnessTints.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: ab07aa88b924f8541b2b3c038c520efc,
-        type: 3}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: backHarnessTints.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: b4e742ae8d2ea0c41bf3257207e8a331,
-        type: 3}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: backHarnessTints.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: 843977927d3833d458599eace7904619,
-        type: 3}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: frontHarnessTints.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: 69c83b0e91b0f864eb559e9c665c166f,
-        type: 3}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: frontHarnessTints.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: c5e399a3fc1c9c740964321a6f6f6ef8,
-        type: 3}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: frontHarnessTints.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: 79dcba629b237a849a5dec3b88e0eeb9,
-        type: 3}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: frontHarnessTints.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: 16ae8a3c44038034c8c7f4ff6b662173,
-        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d2e9e713b880124d966f58a298af2c3, type: 2}
   m_IsPrefabParent: 0
