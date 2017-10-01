@@ -150,48 +150,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d2e9e713b880124d966f58a298af2c3, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1337400734 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1889709072478352, guid: 7d2e9e713b880124d966f58a298af2c3,
+--- !u!114 &1337400735 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114218940832067258, guid: 7d2e9e713b880124d966f58a298af2c3,
     type: 2}
   m_PrefabInternal: {fileID: 13700919}
---- !u!114 &1337400735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1337400734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fb870fd08720654baa8f1830af19258, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bungeeBarPrefab: {fileID: 1111783361033160, guid: 034fe4240f811aa41ac31e49b82f166c,
-    type: 2}
-  barHeightAbovePlayers: 2
---- !u!114 &1337400736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1337400734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9c78f44cb53dc74792dde0c0afe5b61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bridgeArt: {fileID: 21300000, guid: dee8dcc7cba91c14b8956b2c69839e82, type: 3}
-  cliffArt: {fileID: 21300000, guid: 10e3d50ed4b583b49a455cfd852954ba, type: 3}
-  waterArt: {fileID: 21300000, guid: 0928c62eab3f9464382d9d5209e58bb2, type: 3}
-  levelHeight: 10
-  bridgeYLocation: 0
-  teamMan: {fileID: 1337400738}
---- !u!114 &1337400738 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114902202458189324, guid: 7d2e9e713b880124d966f58a298af2c3,
-    type: 2}
-  m_PrefabInternal: {fileID: 13700919}
-  m_Script: {fileID: 11500000, guid: db607e316a471c145913c1c1f1b67b2f, type: 3}
 --- !u!1 &1668977381
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +260,7 @@ MonoBehaviour:
   upTileSpeed: 1
   downTileSpeed: 0.3
   currentCameraState: 0
-  levelGenerator: {fileID: 1337400736}
+  levelGenerator: {fileID: 1337400735}
 --- !u!1001 &1775473047
 Prefab:
   m_ObjectHideFlags: 0

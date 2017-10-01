@@ -73,7 +73,7 @@ public class MiniGameManager : MonoBehaviour {
             PlayerController player = playerGO.GetComponentInChildren<PlayerController>(true);
 
             player.InitPlayer(playerNumber, playerToTeam[i]);
-            playerGO.GetComponent<SpriteRenderer>().sprite = playerArt[i];
+            playerGO.AddComponent<SpriteRenderer>().sprite = playerArt[i];
 
             players.Add(player);
             playerNumber++;

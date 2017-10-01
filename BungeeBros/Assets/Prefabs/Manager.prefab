@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 114641934612687634}
   - component: {fileID: 114902202458189324}
   - component: {fileID: 114073345996398282}
+  - component: {fileID: 114218940832067258}
+  - component: {fileID: 114216068388152554}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -36,7 +38,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1889709072478352}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -63,6 +65,38 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 41c2454fbfebcf34f94b4b315d10d8e6, type: 3}
   - {fileID: 21300000, guid: 41c2454fbfebcf34f94b4b315d10d8e6, type: 3}
   RoundTimer: 10
+  totalCordLength: 500
+--- !u!114 &114216068388152554
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1889709072478352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fb870fd08720654baa8f1830af19258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bungeeBarPrefab: {fileID: 1111783361033160, guid: 034fe4240f811aa41ac31e49b82f166c,
+    type: 2}
+  barHeightAbovePlayers: 2
+--- !u!114 &114218940832067258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1889709072478352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9c78f44cb53dc74792dde0c0afe5b61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bridgeArt: {fileID: 21300000, guid: dee8dcc7cba91c14b8956b2c69839e82, type: 3}
+  cliffArt: {fileID: 21300000, guid: 10e3d50ed4b583b49a455cfd852954ba, type: 3}
+  waterArt: {fileID: 21300000, guid: 0928c62eab3f9464382d9d5209e58bb2, type: 3}
+  levelHeight: 10
+  bridgeYLocation: -1.7
+  teamMan: {fileID: 114902202458189324}
 --- !u!114 &114641934612687634
 MonoBehaviour:
   m_ObjectHideFlags: 1
