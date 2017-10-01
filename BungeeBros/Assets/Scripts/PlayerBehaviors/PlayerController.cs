@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour {
         
         // Change the sprites for the player when they dive
         playerSpriteRenderer.sprite = divingSprite;
-        harnessSpriteRenderer.sprite = backHarness;
+        harnessSpriteRenderer.sprite = MiniGameManager.Instance.backHarnessTints[playerTeam - 1];
 
         //Offset to make the harness line up with the dive sprite
         // TODO: this is shit and needs to not be a magic number

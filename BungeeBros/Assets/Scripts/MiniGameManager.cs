@@ -10,7 +10,8 @@ public class MiniGameManager : MonoBehaviour
     public List<int> playerToTeam = new List<int>();
     public List<Sprite> playerRestingArt = new List<Sprite>();
     public List<Sprite> playerDivingArt = new List<Sprite>();
-    public List<Sprite> harnessTints = new List<Sprite>();
+    public List<Sprite> frontHarnessTints = new List<Sprite>();
+    public List<Sprite> backHarnessTints = new List<Sprite>();
     public float RoundTimer = 10;
     public float totalCordLength = 150;
 
