@@ -7,7 +7,8 @@ public class MiniGameManager : MonoBehaviour {
 
     public GameObject PlayerPrefab;
     public List<int> playerToTeam = new List<int>();
-    public List<Sprite> playerArt = new List<Sprite>();
+    public List<Sprite> playerRestingArt = new List<Sprite>();
+    public List<Sprite> playerDivingArt = new List<Sprite>();
     public float RoundTimer = 10;
     public float totalCordLength = 500;
 
@@ -72,8 +73,7 @@ public class MiniGameManager : MonoBehaviour {
             GameObject playerGO = Instantiate(PlayerPrefab, spawnPoints[i], Quaternion.identity);
             PlayerController player = playerGO.GetComponentInChildren<PlayerController>(true);
 
-            player.InitPlayer(playerNumber, playerToTeam[i]);
-            playerGO.AddComponent<SpriteRenderer>().sprite = playerArt[i];
+            player.InitPlayer(playerNumber, playerToTeam[i], playerRestingArt[i], playerDivingArt[i]);
 
             players.Add(player);
             playerNumber++;

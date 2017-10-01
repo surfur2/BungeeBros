@@ -20,5 +20,6 @@ public class RopeControl : MonoBehaviour {
     {
         lineRendererPoints.SetValue(playerPosition.position, 1);
         myLineRenderer.SetPositions(lineRendererPoints);
+        myLineRenderer.sortingOrder = 2;
     }
 }

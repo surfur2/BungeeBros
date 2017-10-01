@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour {
 
     private int playerNumber;
     private int playerTeam;
+    public Sprite restingSprite;
+    public Sprite divingSprite;
 
     private bool playerJumped;
 
@@ -15,12 +17,17 @@ public class PlayerController : MonoBehaviour {
     private PlayerBungeeControl myBungeeController;
     private Jump myJumpController;
 
+    // My components
+    private SpriteRenderer mySpriteRenderer;
+
     private void Start()
     {
         playerJumped = false;
 
         myBungeeController = GetComponent<PlayerBungeeControl>();
         myJumpController = GetComponent<Jump>();
+
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -32,10 +39,15 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    public void InitPlayer(int _playerNumber, int _playerTeam)
+    public void InitPlayer(int _playerNumber, int _playerTeam, Sprite _restingSprite, Sprite _divingSprite)
     {
         playerNumber = _playerNumber;
         playerTeam = _playerTeam;
+
+        restingSprite = _restingSprite;
+        divingSprite = _divingSprite;
+
+        mySpriteRenderer.sprite = restingSprite;
     }
 
     public int GetPlayerNumber()
@@ -79,5 +91,6 @@ public class PlayerController : MonoBehaviour {
     {
         myJumpController.PlayerJump();
         playerJumped = true;
+        mySpriteRenderer.sprite = divingSprite;
     }
 }
