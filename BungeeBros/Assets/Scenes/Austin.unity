@@ -275,7 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upTileSpeed: 1
   downTileSpeed: 0.3
-  currentCameraState: 1
+  currentCameraState: 0
   levelGenerator: {fileID: 549055646}
 --- !u!1001 &1775473047
 Prefab:
@@ -327,6 +327,18 @@ Prefab:
     - target: {fileID: 4062523707918526, guid: 034fe4240f811aa41ac31e49b82f166c, type: 2}
       propertyPath: m_LocalPosition.z
       value: -0.085
+      objectReference: {fileID: 0}
+    - target: {fileID: 4880015489491470, guid: 034fe4240f811aa41ac31e49b82f166c, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.9301717
+      objectReference: {fileID: 0}
+    - target: {fileID: 4880015489491470, guid: 034fe4240f811aa41ac31e49b82f166c, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.9301714
+      objectReference: {fileID: 0}
+    - target: {fileID: 4880015489491470, guid: 034fe4240f811aa41ac31e49b82f166c, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1.9301714
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 034fe4240f811aa41ac31e49b82f166c, type: 2}

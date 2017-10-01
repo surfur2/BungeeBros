@@ -11,7 +11,11 @@ public class PlayerFillBar : MonoBehaviour {
 	void Update () {
 		if (InputManager.instance.GetButtonDownForPlayer(1, "A"))
         {
-
+            //MinigameManager.AddPlayerScore (Time.deltaTime * fillSpeed);
+        }
+        else
+        {
+            //MinigameManager.AddPlayerSocre(Time.deltaTime * reductionSpeed);
         }
 	}
 }
