@@ -115,6 +115,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerArt.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerToTeam.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4123731103167560, guid: 7d2e9e713b880124d966f58a298af2c3, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -147,6 +157,99 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerToTeam.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerArt.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 41c2454fbfebcf34f94b4b315d10d8e6,
+        type: 3}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerToTeam.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerArt.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 41c2454fbfebcf34f94b4b315d10d8e6,
+        type: 3}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerToTeam.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerToTeam.Array.data[4]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerArt.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 41c2454fbfebcf34f94b4b315d10d8e6,
+        type: 3}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerToTeam.Array.data[5]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerToTeam.Array.data[6]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerToTeam.Array.data[7]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerToTeam.Array.data[8]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerToTeam.Array.data[9]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerArt.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 41c2454fbfebcf34f94b4b315d10d8e6,
+        type: 3}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerArt.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300000, guid: 41c2454fbfebcf34f94b4b315d10d8e6,
+        type: 3}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerArt.Array.data[7]
+      value: 
+      objectReference: {fileID: 21300000, guid: 41c2454fbfebcf34f94b4b315d10d8e6,
+        type: 3}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerArt.Array.data[8]
+      value: 
+      objectReference: {fileID: 21300000, guid: 41c2454fbfebcf34f94b4b315d10d8e6,
+        type: 3}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerArt.Array.data[9]
+      value: 
+      objectReference: {fileID: 21300000, guid: 41c2454fbfebcf34f94b4b315d10d8e6,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d2e9e713b880124d966f58a298af2c3, type: 2}
   m_IsPrefabParent: 0
