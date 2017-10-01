@@ -50,6 +50,9 @@ public class PlayerController : MonoBehaviour {
         restingSprite = _restingSprite;
         divingSprite = _divingSprite;
 
+        // Add the colored rope material
+        GetComponentInChildren<LineRenderer>(true).sharedMaterial = MiniGameManager.Instance.ropeMaterials[playerTeam - 1];
+
         ChangeToForwardHarness();
     }
 
@@ -116,7 +119,7 @@ public class PlayerController : MonoBehaviour {
     private void ChangeToForwardHarness()
     {
         playerSpriteRenderer.sprite = restingSprite;
-        harnessSpriteRenderer.sprite = forwardHarness;
+        harnessSpriteRenderer.sprite = MiniGameManager.Instance.frontHarnessTints[playerTeam - 1];
 
         //Offset to make the harness line up with the dive sprite
         // TODO: this is shit and needs to not be a magic number
