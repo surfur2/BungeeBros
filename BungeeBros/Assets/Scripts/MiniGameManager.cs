@@ -7,7 +7,8 @@ public class MiniGameManager : MonoBehaviour {
 
     public GameObject PlayerPrefab;
     public List<int> playerToTeam = new List<int>();
-    public List<Sprite> playerArt = new List<Sprite>();
+    public List<Sprite> playerRestingArt = new List<Sprite>();
+    public List<Sprite> playerDivingArt = new List<Sprite>();
     public float RoundTimer = 10;
     public float totalCordLength = 500;
 
@@ -15,6 +16,7 @@ public class MiniGameManager : MonoBehaviour {
     private List<PlayerController> players = new List<PlayerController>();
     private TeamManager teamMan;
     private BungeeLevelGenerator levelGen;
+    private BungeeUIManager uiManager;
     private float minCordLength = 20;
     private float maxCordLength = 100;
     private float startTime;
@@ -41,12 +43,15 @@ public class MiniGameManager : MonoBehaviour {
     void Start () {
         teamMan = GetComponent<TeamManager>();
         levelGen = GetComponent<BungeeLevelGenerator>();
+        uiManager = GetComponent<BungeeUIManager>();
 
         maxCordLength = Random.Range(100, totalCordLength);
         levelGen.InitLevel();
 
         MakePlayers(levelGen.PlayerStartLocations);
         teamMan.MakeTeams(players);
+
+        uiManager.Init(levelGen.PlayerStartLocations);
 
         startTime = Time.time;
 	}
@@ -80,9 +85,7 @@ public class MiniGameManager : MonoBehaviour {
             GameObject playerContainer = Instantiate(PlayerPrefab, Vector3.zero, Quaternion.identity);
             PlayerController player = playerContainer.GetComponentInChildren<PlayerController>(true);
 
-            player.InitPlayer(playerNumber, playerToTeam[i]);
-            SpriteRenderer playerSprite = player.GetComponent<SpriteRenderer>();
-            playerSprite.sprite = playerArt[i];
+            player.InitPlayer(playerNumber, playerToTeam[i], playerRestingArt[i], playerDivingArt[i]);
 
             Vector3 spawn = spawnPoints[i];
 
@@ -92,7 +95,7 @@ public class MiniGameManager : MonoBehaviour {
             }
             else
             {
-                spawn.y += playerSprite.bounds.extents.y * Mathf.PI;
+                spawn.y += playerRestingArt[i].bounds.extents.y * Mathf.PI;
             }
             
             playerContainer.transform.position = spawn;

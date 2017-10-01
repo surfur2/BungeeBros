@@ -6,7 +6,9 @@ public class PlayerController : MonoBehaviour {
     
     private int playerNumber;
     private int playerTeam;
+<<<<<<< HEAD
     private float fillBarValue;
+=======
     [SerializeField]
     private Sprite restingSprite;
     [SerializeField]
@@ -15,6 +17,7 @@ public class PlayerController : MonoBehaviour {
     public Sprite forwardHarness;
     public Sprite backHarness;
     public SpriteRenderer harnessSpriteRenderer;
+>>>>>>> 2d9c6a83ec9a6c55a3217003a5a51da1221d07b3
 
     private bool playerJumped;
 
@@ -22,12 +25,18 @@ public class PlayerController : MonoBehaviour {
     private PlayerBungeeControl myBungeeController;
     private Jump myJumpController;
 
+<<<<<<< HEAD
 
     public float FillBarValue { get { return fillBarValue; } }
+
+
+    private void Start()
+=======
     // My components
     private SpriteRenderer playerSpriteRenderer;
 
     private void Awake()
+>>>>>>> 2d9c6a83ec9a6c55a3217003a5a51da1221d07b3
     {
         playerJumped = false;
 

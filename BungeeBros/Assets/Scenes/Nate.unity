@@ -147,11 +147,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114641934612687634, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d2e9e713b880124d966f58a298af2c3, type: 2}
   m_IsPrefabParent: 0
@@ -344,7 +339,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1c2ba659fb2987a4296fdbbdbe0146ed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -387,7 +382,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1400660000
+--- !u!1001 &1652022507
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -396,11 +391,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4982057216561172, guid: 292d7b8c91de2194f8b7ce80b29c2576, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.09208695
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4982057216561172, guid: 292d7b8c91de2194f8b7ce80b29c2576, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -9.888657
+      value: 1.46
       objectReference: {fileID: 0}
     - target: {fileID: 4982057216561172, guid: 292d7b8c91de2194f8b7ce80b29c2576, type: 2}
       propertyPath: m_LocalPosition.z
@@ -425,16 +420,6 @@ Prefab:
     - target: {fileID: 4982057216561172, guid: 292d7b8c91de2194f8b7ce80b29c2576, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114971392684148026, guid: 292d7b8c91de2194f8b7ce80b29c2576,
-        type: 2}
-      propertyPath: fillSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114971392684148026, guid: 292d7b8c91de2194f8b7ce80b29c2576,
-        type: 2}
-      propertyPath: reductionSpeed
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 292d7b8c91de2194f8b7ce80b29c2576, type: 2}
