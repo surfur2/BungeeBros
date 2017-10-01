@@ -6,6 +6,8 @@ public class InputManager : MonoBehaviour {
 
     public static InputManager instance;
 
+    private bool isDevMode = true;
+
 	// Use this for initialization
 	void Start () {
 		if (instance == null)
@@ -20,6 +22,9 @@ public class InputManager : MonoBehaviour {
 
     public bool GetButtonDownForPlayer (int playerNumber, string button)
     {
+        if (isDevMode)
+            return Input.GetKey("a");
+
         return Input.GetButtonDown(button + "_P"+ playerNumber);
     }
 

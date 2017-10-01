@@ -9,21 +9,25 @@ public class PlayerController : MonoBehaviour {
     private int playerNumber;
     private int playerTeam;
 
+    private bool playerJumped;
+
     // My subobjects
     private PlayerBungeeControl myBungeeController;
     private Jump myJumpController;
 
     private void Start()
     {
+        playerJumped = false;
+
         myBungeeController = GetComponent<PlayerBungeeControl>();
         myJumpController = GetComponent<Jump>();
     }
 
     private void Update()
     {   
-        if(Input.GetButtonDown("space"))
+        if(Input.GetKeyDown("space"))
         {
-            SetPlayerCordLength(score);
+            myBungeeController.SetPlayerGuess(score);
             JumpPlayer();
         }
     }
@@ -44,18 +48,36 @@ public class PlayerController : MonoBehaviour {
         return playerTeam;
     }
 
-    public float GetPlayerSocre()
+    public float GetPlayerScore()
     {
         return score;
     }
 
-    public void SetPlayerCordLength (float lengthOfCord)
+    public bool HasPlayerJumped()
     {
-        myBungeeController.SetPlayerGuess(lengthOfCord);
+        return playerJumped;
+    }
+
+    public void AddValueToScore (float value)
+    {
+        score += value;
+
+        Debug.Log("Current value of score: " + score);
+
+        if (score < 0.0f)
+        {
+            score = 0.0f;
+        }
+
+        /*if (score > MAX_SCORE)
+        {
+            score = MAX_SCORE;
+        }*/
     }
 
     public void JumpPlayer ()
     {
         myJumpController.PlayerJump();
+        playerJumped = true;
     }
 }
