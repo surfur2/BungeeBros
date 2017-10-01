@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour {
 
-    public static InputManager instance;
+    public static InputManager instance = null;
 
     private bool isDevMode = true;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		if (instance == null)
         {
             instance = this;
