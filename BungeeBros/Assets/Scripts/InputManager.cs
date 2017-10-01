@@ -20,6 +20,7 @@ public class InputManager : MonoBehaviour {
         }
 	}
 
+    // This will return true the single frame that the button is initiallt pressed.
     public bool GetButtonDownForPlayer (int playerNumber, string button)
     {
         if (isDevMode)
@@ -28,8 +29,20 @@ public class InputManager : MonoBehaviour {
         return Input.GetButtonDown(button + "_P"+ playerNumber);
     }
 
+    // this will return true for the single frame the button was released
     public bool GetButtonUpForPlayer(int playerNumber, string button)
     {
         return Input.GetButtonUp(button + "_P" + playerNumber);
     }
+
+    // This will return true for all frames the buttonis held.
+    public bool GetButtonForPlayer(int playerNumber, string button)
+    {
+        if (isDevMode)
+            return Input.GetKey("a");
+
+        return Input.GetButton(button + "_P" + playerNumber);
+    }
+
+    
 }
