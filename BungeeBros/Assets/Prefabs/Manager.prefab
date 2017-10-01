@@ -38,7 +38,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1889709072478352}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -58,12 +58,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 1418909479451220, guid: 292d7b8c91de2194f8b7ce80b29c2576,
     type: 2}
-  playerToTeam: 01000000020000000300000003000000
-  playerArt:
-  - {fileID: 21300000, guid: 41c2454fbfebcf34f94b4b315d10d8e6, type: 3}
-  - {fileID: 21300000, guid: 41c2454fbfebcf34f94b4b315d10d8e6, type: 3}
-  - {fileID: 21300000, guid: 41c2454fbfebcf34f94b4b315d10d8e6, type: 3}
-  - {fileID: 21300000, guid: 41c2454fbfebcf34f94b4b315d10d8e6, type: 3}
+  playerToTeam: 010000000200000003000000
+  playerRestingArt:
+  - {fileID: 21300000, guid: 973c90ee76138ce4c8b4ea2bdc614e73, type: 3}
+  - {fileID: 21300000, guid: f188f740089d35941aaa8c7b312e3e3a, type: 3}
+  - {fileID: 21300000, guid: d27d14eaae857c747a5117836d89c9cc, type: 3}
+  playerDivingArt:
+  - {fileID: 21300000, guid: 2e4cf459f74bcd143b826078528e176e, type: 3}
+  - {fileID: 21300000, guid: 1b44360d904e3054ebd756e982c7fc91, type: 3}
+  - {fileID: 21300000, guid: dafe3c66f78dae14fa1879a66768a404, type: 3}
   RoundTimer: 10
   totalCordLength: 500
 --- !u!114 &114216068388152554
@@ -103,7 +106,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1889709072478352}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 053e29c728640b949b411d94da62e107, type: 3}
   m_Name: 
