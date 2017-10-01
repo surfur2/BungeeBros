@@ -71,13 +71,29 @@ public class MiniGameManager : MonoBehaviour {
     void MakePlayers(Vector3[] spawnPoints)
     {
         int playerNumber = 1;
+        GameObject spawnHeight = GameObject.Find("SpawnHeight");
+
         for (int i = 0; i < playerToTeam.Count; i++)
         {
-            GameObject playerGO = Instantiate(PlayerPrefab, spawnPoints[i], Quaternion.identity);
-            PlayerController player = playerGO.GetComponentInChildren<PlayerController>(true);
+            GameObject playerContainer = Instantiate(PlayerPrefab, Vector3.zero, Quaternion.identity);
+            PlayerController player = playerContainer.GetComponentInChildren<PlayerController>(true);
 
             player.InitPlayer(playerNumber, playerToTeam[i]);
-            playerGO.AddComponent<SpriteRenderer>().sprite = playerArt[i];
+            SpriteRenderer playerSprite = player.GetComponent<SpriteRenderer>();
+            playerSprite.sprite = playerArt[i];
+
+            Vector3 spawn = spawnPoints[i];
+
+            if (spawnHeight)
+            {
+                spawn.y = spawnHeight.transform.position.y;
+            }
+            else
+            {
+                spawn.y += playerSprite.bounds.extents.y * Mathf.PI;
+            }
+            
+            playerContainer.transform.position = spawn;
 
             players.Add(player);
             playerNumber++;
