@@ -117,12 +117,12 @@ Prefab:
     m_Modifications:
     - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
         type: 2}
-      propertyPath: playerArt.Array.size
+      propertyPath: playerDivingArt.Array.size
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
         type: 2}
-      propertyPath: playerToTeam.Array.size
+      propertyPath: playerRestingArt.Array.size
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4123731103167560, guid: 7d2e9e713b880124d966f58a298af2c3, type: 2}
@@ -159,100 +159,58 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
         type: 2}
-      propertyPath: playerToTeam.Array.data[3]
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: PlayerPrefab
+      value: 
+      objectReference: {fileID: 1653928490634510, guid: 292d7b8c91de2194f8b7ce80b29c2576,
+        type: 2}
     - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
         type: 2}
-      propertyPath: playerArt.Array.data[3]
+      propertyPath: playerRestingArt.Array.data[3]
       value: 
-      objectReference: {fileID: 21300000, guid: 41c2454fbfebcf34f94b4b315d10d8e6,
+      objectReference: {fileID: 21300000, guid: d27d14eaae857c747a5117836d89c9cc,
         type: 3}
     - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
         type: 2}
-      propertyPath: playerToTeam.Array.data[2]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerArt.Array.data[2]
+      propertyPath: playerDivingArt.Array.data[3]
       value: 
-      objectReference: {fileID: 21300000, guid: 41c2454fbfebcf34f94b4b315d10d8e6,
+      objectReference: {fileID: 21300000, guid: dafe3c66f78dae14fa1879a66768a404,
         type: 3}
     - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
         type: 2}
-      propertyPath: playerToTeam.Array.data[1]
-      value: 1
+      propertyPath: totalCordLength
+      value: 150
       objectReference: {fileID: 0}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerToTeam.Array.data[4]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerArt.Array.data[4]
-      value: 
-      objectReference: {fileID: 21300000, guid: 41c2454fbfebcf34f94b4b315d10d8e6,
-        type: 3}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerToTeam.Array.data[5]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerToTeam.Array.data[6]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerToTeam.Array.data[7]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerToTeam.Array.data[8]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerToTeam.Array.data[9]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerArt.Array.data[5]
-      value: 
-      objectReference: {fileID: 21300000, guid: 41c2454fbfebcf34f94b4b315d10d8e6,
-        type: 3}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerArt.Array.data[6]
-      value: 
-      objectReference: {fileID: 21300000, guid: 41c2454fbfebcf34f94b4b315d10d8e6,
-        type: 3}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerArt.Array.data[7]
-      value: 
-      objectReference: {fileID: 21300000, guid: 41c2454fbfebcf34f94b4b315d10d8e6,
-        type: 3}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerArt.Array.data[8]
-      value: 
-      objectReference: {fileID: 21300000, guid: 41c2454fbfebcf34f94b4b315d10d8e6,
-        type: 3}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerArt.Array.data[9]
-      value: 
-      objectReference: {fileID: 21300000, guid: 41c2454fbfebcf34f94b4b315d10d8e6,
-        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d2e9e713b880124d966f58a298af2c3, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &827778161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 827778162}
+  m_Layer: 0
+  m_Name: SpawnHeight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &827778162
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 827778161}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.04, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1337400735 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114218940832067258, guid: 7d2e9e713b880124d966f58a298af2c3,

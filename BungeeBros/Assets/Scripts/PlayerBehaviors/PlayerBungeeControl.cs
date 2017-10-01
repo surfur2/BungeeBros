@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameUtilities;
 
 public class PlayerBungeeControl : MonoBehaviour {
-
-    public float unityUnitToMeter = 20.0f;
 
     private float lengthOfCord;
     private Vector3 playerStartingPosition;
@@ -30,7 +29,7 @@ public class PlayerBungeeControl : MonoBehaviour {
 	void Update () {
 		if (readyToJump)
         {
-            float currentFallDistance = (gameObject.transform.position - playerStartingPosition).magnitude * unityUnitToMeter;
+            float currentFallDistance = (gameObject.transform.position - playerStartingPosition).magnitude * Globals.UNITY_UNIT_TO_METERS;
 
             if (Mathf.Abs(currentFallDistance - lengthOfCord) < errorForFall && myRigidBody.velocity.magnitude < velocityError)
             {
