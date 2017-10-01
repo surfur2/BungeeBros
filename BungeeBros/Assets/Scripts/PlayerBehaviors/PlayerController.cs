@@ -110,6 +110,7 @@ public class PlayerController : MonoBehaviour {
         myRopeController.TurnOffRope();
         myBungeeController.SetPlayerGuess(MiniGameManager.Instance.MaxCordLength);
         myRigidBody.simulated = false;
+        transform.position = new Vector3(transform.position.x, transform.position.y - 1.1f, transform.position.z);
     }
 
     private void ChangeToForwardHarness()
