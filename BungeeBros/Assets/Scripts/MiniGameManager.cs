@@ -122,7 +122,7 @@ public class MiniGameManager : MonoBehaviour
     {
         float best = 0;
         int winner = -1;
-
+        bool thereIsAWinner = false;
         // Check the best score out of all teams
         foreach (Team team in teamMan.Teams)
         {
@@ -138,6 +138,10 @@ public class MiniGameManager : MonoBehaviour
                     currentWorstPlayer = player.GetPlayerNumber();
                     break;
                 }
+                else
+                {
+                    thereIsAWinner = true;
+                }
 
                 if (player.FillBarValue < currentWorst)
                 {
@@ -149,7 +153,11 @@ public class MiniGameManager : MonoBehaviour
                 player.SetCordLength(player.FillBarValue);
             }
 
-            if (currentWorst > best)
+            if (!thereIsAWinner)
+            {
+                return -1; // No winner
+            }
+            else if (currentWorst > best)
             {
                 best = currentWorst;
                 winner = currentWorstPlayer;

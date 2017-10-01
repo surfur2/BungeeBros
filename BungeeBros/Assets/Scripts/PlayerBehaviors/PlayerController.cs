@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour {
     private Sprite divingSprite;
 
     public Sprite forwardHarness;
-    public Sprite backHarness;
     public SpriteRenderer harnessSpriteRenderer;
 
     private bool playerJumped;
