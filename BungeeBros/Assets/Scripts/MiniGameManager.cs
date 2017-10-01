@@ -52,7 +52,7 @@ public class MiniGameManager : MonoBehaviour {
             GameObject playerGO = Instantiate(PlayerPrefab, spawnPoints[i], Quaternion.identity);
             PlayerController player = playerGO.GetComponent<PlayerController>();
 
-            player.InitPlayer(playerNumber, playerToTeam[i], 0);
+            player.InitPlayer(playerNumber, playerToTeam[i]);
             playerGO.GetComponent<SpriteRenderer>().sprite = playerArt[i];
 
             players.Add(player);
