@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerFillBar : MonoBehaviour {
 
-    public float fillSpeed;
-    public float reductionSpeed;
+    public float fillSpeedPercent;
+    public float reductionSpeedPercent;
 
     private PlayerController playerController;
 
@@ -21,11 +21,11 @@ public class PlayerFillBar : MonoBehaviour {
             // Register when the button is held to increase amount of cord
             if (InputManager.instance.GetButtonForPlayer(playerController.GetPlayerNumber(), "A"))
             {
-                playerController.AddValueToScore(Time.deltaTime * fillSpeed);
+                playerController.AddValueToScore(Time.deltaTime * fillSpeedPercent * MiniGameManager.Instance.totalCordLength);
             }
             else
             {
-                playerController.AddValueToScore(-(Time.deltaTime * reductionSpeed));
+                playerController.AddValueToScore(-(Time.deltaTime * reductionSpeedPercent * MiniGameManager.Instance.totalCordLength));
             }
 
             // Register when the button is tapped to increase the amount of cord.
