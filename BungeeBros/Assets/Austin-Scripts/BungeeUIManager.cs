@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BungeeUIManager : MonoBehaviour
 {
+    public
 
     // Use this for initialization
     void Start()
@@ -16,4 +17,7 @@ public class BungeeUIManager : MonoBehaviour
     {
 
     }
+
+
+    public void SetBungeeDisplays() { }
 }
