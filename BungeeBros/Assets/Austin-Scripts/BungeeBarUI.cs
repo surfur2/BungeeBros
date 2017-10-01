@@ -8,9 +8,6 @@ public class BungeeBarUI : MonoBehaviour
     private const float FULL_BAR_SCALE_FACTOR = 2.857f;
 
     // Instance Variables
-    public float emptyBarBungeeDistance;
-    public float fullBarBungeeDistance;
-
     private GameObject barScaler;
     private GameObject pointer;
     private SpriteRenderer fillBarRenderer;
@@ -30,7 +27,7 @@ public class BungeeBarUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SetBarRepresentation(Time.time);
+
     }
 
 
@@ -39,13 +36,15 @@ public class BungeeBarUI : MonoBehaviour
     /// Sets the current bar representation amount. ie. How much rope out of the total is the player using.
     /// </summary>
     /// <param name="playerSelection">The length of rope (in meters) the player is currently selecting. Will be clamped between the empty and full bungee distance values.</param>
-    public void SetBarRepresentation(float playerSelection)
+    /// <param name="min">The minimum value of the player selection.</param>
+    /// <param name="max">The maximum value of the player selection.</param>
+    public void SetBarRepresentation(float playerSelection, float min, float max)
     {
         // Clamp the selection between the min and max
-        playerSelection = Mathf.Clamp(playerSelection, emptyBarBungeeDistance, fullBarBungeeDistance);
+        playerSelection = Mathf.Clamp(playerSelection, min, max);
 
         // Calculate the percentage the bar will be filled, and multiply that by the full scale value to get the proper representation
-        float scaleFactor = (playerSelection / fullBarBungeeDistance) * FULL_BAR_SCALE_FACTOR;
+        float scaleFactor = (playerSelection / max) * FULL_BAR_SCALE_FACTOR;
 
         // Represent the selection on the bar
         barScaler.transform.localScale = new Vector3(scaleFactor, barScaler.transform.localScale.y, 1);
