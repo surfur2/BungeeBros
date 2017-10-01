@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameUtilities;
 
 public class BungeeLevelGenerator : MonoBehaviour
 {
@@ -10,9 +11,13 @@ public class BungeeLevelGenerator : MonoBehaviour
     public Sprite waterArt;
 
     public int levelHeight;
+    public float bridgeYLocation;
+
+    public TeamManager teamMan;
 
     private GameObject bridgeObject;
     private GameObject waterObject;
+    private Vector3[] playerStartLocations;
 
 
     public GameObject BridgeObject
@@ -29,12 +34,13 @@ public class BungeeLevelGenerator : MonoBehaviour
     void Start()
     {
         GenerateNewLevel(levelHeight);
+        playerStartLocations = new Vector3[teamMan.players.Count];
+        SetupPlayerLanes();
     }
 
     // Update is called once per frame
     void Update()
     {
-
     }
 
 
@@ -80,6 +86,37 @@ public class BungeeLevelGenerator : MonoBehaviour
         waterObject.transform.position = newWaterPos;
 
         waterObject.transform.parent = worldContainer.transform;
+    }
+
+    /// <summary>
+    /// Determines the locations of each player on the bridge. 
+    /// </summary>
+    private void SetupPlayerLanes()
+    {
+        // Calculate the furthest edges of the camera in world space.
+        float horizExtent = Camera.main.orthographicSize * Screen.width / Screen.height;
+        float farLeft = -horizExtent;
+
+        // Calculate how far the players should be from each other (and how far the edge players should be from the edge of the screen).
+        float separationDistance = (horizExtent * 2) / (playerStartLocations.Length + 1);
+
+        // Loop through the empty array of length 
+        for (int i = 0; i < playerStartLocations.Length; i++)
+        {
+            // Create player objects in the world.
+            GameObject newPlayer = new GameObject("Player" + (i + 1));
+            newPlayer.AddComponent<SpriteRenderer>().sprite = teamMan.players[i].playerCharacterSprite;
+            newPlayer.transform.localScale = new Vector3(.2f, .2f);
+
+            // Calculate and save their starting positions.
+            playerStartLocations[i] = new Vector3(
+                farLeft + (separationDistance * (i + 1)),
+                bridgeYLocation + newPlayer.GetComponent<SpriteRenderer>().bounds.extents.y,
+                -1);
+
+            // Move them there.
+            newPlayer.transform.position = playerStartLocations[i];
+        }
     }
     #endregion
 }

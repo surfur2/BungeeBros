@@ -20,11 +20,11 @@ public class InputManager : MonoBehaviour {
 
     public bool GetButtonDownForPlayer (int playerNumber, string button)
     {
-        return Input.GetButtonDown(button + "_" + "P" + playerNumber);
+        return Input.GetButtonDown(button + "_P"+ playerNumber);
     }
 
     public bool GetButtonUpForPlayer(int playerNumber, string button)
     {
-        return Input.GetButtonDown(button + "_" + "P" + playerNumber);
+        return Input.GetButtonUp(button + "_P" + playerNumber);
     }
 }
