@@ -18,114 +18,114 @@ public class ScoreManager : MonoBehaviour
         teamMan = GetComponent<TeamManager>();
     }
 
-    /// <summary>
-    /// Calculates winner considering the worst score from each team for Balance option 1
-    /// </summary>
-    /// <returns>The teamNumber that won</returns>
-    public int GetWinner_Balance1()
-    {
-        float best = 0;
-        int winner = -1;
+    ///// <summary>
+    ///// Calculates winner considering the worst score from each team for Balance option 1
+    ///// </summary>
+    ///// <returns>The teamNumber that won</returns>
+    //public int GetWinner_Balance1()
+    //{
+    //    float best = 0;
+    //    int winner = -1;
 
-        // Check the best score out of all teams
-        foreach (Team team in teamMan.Teams)
-        {
-            float currentWorst = MAX_LENGTH;
+    //    // Check the best score out of all teams
+    //    foreach (Team team in teamMan.Teams)
+    //    {
+    //        float currentWorst = MAX_LENGTH;
 
-            // Get the worst score from all players in the team
-            foreach (PlayerController player in team.players)
-            {
-                if (player.GetPlayerScore() >= MAX_LENGTH)
-                {
-                    currentWorst = -1;
-                    break;
-                }
+    //        // Get the worst score from all players in the team
+    //        foreach (PlayerController player in team.players)
+    //        {
+    //            if (player.GetPlayerScore() >= MAX_LENGTH)
+    //            {
+    //                currentWorst = -1;
+    //                break;
+    //            }
 
-                if (player.GetPlayerScore() < currentWorst)
-                    currentWorst = player.GetPlayerScore();
-            }
+    //            if (player.GetPlayerScore() < currentWorst)
+    //                currentWorst = player.GetPlayerScore();
+    //        }
 
-            if (currentWorst > best)
-            {
-                best = currentWorst;
-                winner = team.teamNumber;
-            }
-        }
+    //        if (currentWorst > best)
+    //        {
+    //            best = currentWorst;
+    //            winner = team.teamNumber;
+    //        }
+    //    }
 
-        return winner;
-    }
+    //    return winner;
+    //}
 
-    /// <summary>
-    /// Calculates winner considering the addition of all cord lengths from each team for Balance option 2
-    /// </summary>
-    /// <returns>The teamNumber that won</returns>
-    public int GetWinner_Balance2()
-    {
-        float best = 0;
-        int winner = -1;
+    ///// <summary>
+    ///// Calculates winner considering the addition of all cord lengths from each team for Balance option 2
+    ///// </summary>
+    ///// <returns>The teamNumber that won</returns>
+    //public int GetWinner_Balance2()
+    //{
+    //    float best = 0;
+    //    int winner = -1;
 
-        // Check the best score out of all teams
-        foreach (Team team in teamMan.Teams)
-        {
-            float currentSum = 0;
+    //    // Check the best score out of all teams
+    //    foreach (Team team in teamMan.Teams)
+    //    {
+    //        float currentSum = 0;
 
-            // Get the sum of scores of all players in the team
-            foreach (PlayerController player in team.players)
-            {
-                currentSum += player.GetPlayerScore();
-                if (currentSum >= MAX_LENGTH)
-                {
-                    currentSum = -1;
-                    break;
-                }
-            }
+    //        // Get the sum of scores of all players in the team
+    //        foreach (PlayerController player in team.players)
+    //        {
+    //            currentSum += player.GetPlayerScore();
+    //            if (currentSum >= MAX_LENGTH)
+    //            {
+    //                currentSum = -1;
+    //                break;
+    //            }
+    //        }
 
-            if (currentSum > best)
-            {
-                best = currentSum;
-                winner = team.teamNumber;
-            }
-        }
+    //        if (currentSum > best)
+    //        {
+    //            best = currentSum;
+    //            winner = team.teamNumber;
+    //        }
+    //    }
 
-        return winner;
-    }
+    //    return winner;
+    //}
 
-    /// <summary>
-    /// Calculates winner considering the average cord length from each team for Balance option 2
-    /// </summary>
-    /// <returns>The teamNumber that won</returns>
-    public int GetWinner_Balance3()
-    {
-        float best = 0;
-        int winner = -1;
+    ///// <summary>
+    ///// Calculates winner considering the average cord length from each team for Balance option 2
+    ///// </summary>
+    ///// <returns>The teamNumber that won</returns>
+    //public int GetWinner_Balance3()
+    //{
+    //    float best = 0;
+    //    int winner = -1;
 
-        // Check the best score out of all teams
-        foreach (Team team in teamMan.Teams)
-        {
-            float currentSum = 0;
+    //    // Check the best score out of all teams
+    //    foreach (Team team in teamMan.Teams)
+    //    {
+    //        float currentSum = 0;
 
-            // Get the worst score from all players in the team
-            foreach (PlayerController player in team.players)
-            {
-                currentSum += player.GetPlayerScore();
-                if (currentSum >= MAX_LENGTH)
-                {
-                    currentSum = -1;
-                    break;
-                }
-            }
+    //        // Get the worst score from all players in the team
+    //        foreach (PlayerController player in team.players)
+    //        {
+    //            currentSum += player.GetPlayerScore();
+    //            if (currentSum >= MAX_LENGTH)
+    //            {
+    //                currentSum = -1;
+    //                break;
+    //            }
+    //        }
 
-            currentSum /= team.players.Count;
+    //        currentSum /= team.players.Count;
 
-            if (currentSum > best)
-            {
-                best = currentSum;
-                winner = team.teamNumber;
-            }
-        }
+    //        if (currentSum > best)
+    //        {
+    //            best = currentSum;
+    //            winner = team.teamNumber;
+    //        }
+    //    }
 
-        return winner;
-    }
+    //    return winner;
+    //}
 
     ///// <summary>
     ///// DEBUG ONLY CODE!!!! 

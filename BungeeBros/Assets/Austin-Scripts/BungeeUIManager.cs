@@ -49,7 +49,7 @@ public class BungeeUIManager : MonoBehaviour
     {
         for (int i = 0; i < bungeeBars.Length; i++)
         {
-            float playerSelection = MiniGameManager.Instance.Players[i].GetPlayerScore();
+            float playerSelection = MiniGameManager.Instance.Players[i].FillBarValue;
             bungeeBars[i].SetBarRepresentation(playerSelection, MiniGameManager.Instance.MinCordLength, MiniGameManager.Instance.totalCordLength);
         }
     }

@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour {
             fillBarValue = MiniGameManager.Instance.MaxCordLength;
         }
 
-        Debug.Log("My current score: "+ score);
+        Debug.Log("My current score: "+ fillBarValue);
     }
 
     public void JumpPlayer ()
