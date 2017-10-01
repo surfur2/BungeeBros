@@ -19,24 +19,25 @@ public class TeamManager : MonoBehaviour {
             playerNumber++;
         }
 
-        MakeTeams();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+        MakeTeams(players);
 	}
 
-    public void MakeTeams()
+    /// <summary>
+    /// Makes Teams from the list of players
+    /// </summary>
+    /// <param name="players">List of Player objects</param>
+    public void MakeTeams(List<Player> players)
     {
         foreach(Player player in players)
         {
+            // Create team if team doesn't exist
             if (teams.Count < player.teamNumber)
             {
                 for (int i = teams.Count; i < player.teamNumber; i++)
                     teams.Add(new Team(i + 1));
             }
 
+            // Add player to team
             teams[player.teamNumber - 1].players.Add(player);
         }
     }
