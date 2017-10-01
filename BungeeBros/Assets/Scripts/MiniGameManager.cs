@@ -6,13 +6,15 @@ using GameUtilities;
 public class MiniGameManager : MonoBehaviour {
 
     public static MiniGameManager Instance { get { return _instance; } }
+    public GameObject PlayerPrefab;
     public List<int> playerToTeam = new List<int>();
     public List<Sprite> playerArt = new List<Sprite>();
-    public List<Player> Players { get { return players; } }
+    public List<PlayerController> Players { get { return players; } }
 
     private static MiniGameManager _instance = null;
-    List<Player> players = new List<Player>();
+    List<PlayerController> players = new List<PlayerController>();
     TeamManager teamMan;
+    BungeeLevelGenerator levelGen;
 
     private void Awake()
     {
@@ -29,7 +31,11 @@ public class MiniGameManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         teamMan = GetComponent<TeamManager>();
-        MakePlayers();
+        levelGen = GetComponent<BungeeLevelGenerator>();
+
+        levelGen.InitLevel();
+
+        MakePlayers(levelGen.PlayerStartLocations);
         teamMan.MakeTeams(players);
 	}
 	
@@ -38,23 +44,19 @@ public class MiniGameManager : MonoBehaviour {
 		
 	}
 
-    void MakePlayers()
+    void MakePlayers(Vector3[] spawnPoints)
     {
         int playerNumber = 1;
         for (int i = 0; i < playerToTeam.Count; i++)
         {
-            players.Add(new Player(playerNumber, playerToTeam[i], playerArt[i]));
+            GameObject playerGO = Instantiate(PlayerPrefab, spawnPoints[i], Quaternion.identity);
+            PlayerController player = playerGO.GetComponent<PlayerController>();
+
+            player.InitPlayer(playerNumber, playerToTeam[i], 0);
+            playerGO.GetComponent<SpriteRenderer>().sprite = playerArt[i];
+
+            players.Add(player);
             playerNumber++;
         }
-    }
-
-    /// <summary>
-    /// Adds "scoreValue" amount to the player<playerNumber>'s score
-    /// </summary>
-    /// <param name="playerNumber">The player Number</param>
-    /// <param name="scoreValue">Score amount to add</param>
-    public void AddToPlayerScore(int playerNumber, float scoreValue)
-    {
-        players[playerNumber - 1].score += scoreValue;
     }
 }
