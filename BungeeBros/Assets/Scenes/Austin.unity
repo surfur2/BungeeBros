@@ -108,6 +108,50 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &549055645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 549055647}
+  - component: {fileID: 549055646}
+  m_Layer: 0
+  m_Name: LevelGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &549055646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 549055645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9c78f44cb53dc74792dde0c0afe5b61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bridgeArt: {fileID: 21300000, guid: dee8dcc7cba91c14b8956b2c69839e82, type: 3}
+  cliffArt: {fileID: 21300000, guid: 10e3d50ed4b583b49a455cfd852954ba, type: 3}
+  waterArt: {fileID: 21300000, guid: 0928c62eab3f9464382d9d5209e58bb2, type: 3}
+  levelHeight: 10
+--- !u!4 &549055647
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 549055645}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1668977381
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,6 +164,7 @@ GameObject:
   - component: {fileID: 1668977384}
   - component: {fileID: 1668977383}
   - component: {fileID: 1668977382}
+  - component: {fileID: 1668977387}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -197,3 +242,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1668977387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1668977381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b86efbd2729aab45bbe54f7189bc830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1668977385}
+  upTileSpeed: 1
+  downTileSpeed: 0.3
+  currentCameraState: 1
+  levelGenerator: {fileID: 549055646}

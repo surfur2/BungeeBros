@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RopeControl : MonoBehaviour {
-
-    public Transform anchorPosition;
-    public Transform playerPoisiton;
-
     private LineRenderer myLineRenderer;
     private Vector3[] lineRendererPoints = new Vector3[2];
 
