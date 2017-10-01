@@ -15,6 +15,7 @@ public class MiniGameManager : MonoBehaviour {
     private List<PlayerController> players = new List<PlayerController>();
     private TeamManager teamMan;
     private BungeeLevelGenerator levelGen;
+    private BungeeUIManager uiManager;
     private float minCordLength = 20;
     private float maxCordLength = 100;
     private float startTime;
@@ -41,12 +42,15 @@ public class MiniGameManager : MonoBehaviour {
     void Start () {
         teamMan = GetComponent<TeamManager>();
         levelGen = GetComponent<BungeeLevelGenerator>();
+        uiManager = GetComponent<BungeeUIManager>();
 
         maxCordLength = Random.Range(100, totalCordLength);
         levelGen.InitLevel();
 
         MakePlayers(levelGen.PlayerStartLocations);
         teamMan.MakeTeams(players);
+
+        uiManager.Init(levelGen.PlayerStartLocations);
 
         startTime = Time.time;
 	}
