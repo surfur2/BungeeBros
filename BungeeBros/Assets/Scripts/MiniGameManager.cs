@@ -27,12 +27,14 @@ public class MiniGameManager : MonoBehaviour
     private float startTime;
     private bool jumped = false;
     private float countdownTimer;
+    private int winner = -1;
 
     public static MiniGameManager Instance { get { return _instance; } }
     public List<PlayerController> Players { get { return players; } }
     public float MinCordLength { get { return minCordLength; } }
     public float MaxCordLength { get { return maxCordLength; } }
     public float CountdownTimer { get { return countdownTimer; } }
+    public int Winner { get { return winner; } }
 
     private void Awake()
     {
@@ -71,9 +73,9 @@ public class MiniGameManager : MonoBehaviour
         countdownTimer = Time.time - startTime;
         if (countdownTimer >= RoundTimer && !jumped)
         {
+            winner = GetWinner_Balance1();
+
             // Tell camera to begin chasing the furthest jumper.
-            camControl.winnerIndex = GetWinner_Balance1();
-            camControl.furthestIndex = GetMaxCordPlayer();
             camControl.currentCameraState = BungeeCameraStates.ChaseFurthest;
 
             // Make players jump
@@ -124,7 +126,7 @@ public class MiniGameManager : MonoBehaviour
     {
         float best = 0;
         int winner = -1;
-
+        bool thereIsAWinner = false;
         // Check the best score out of all teams
         foreach (Team team in teamMan.Teams)
         {
@@ -140,6 +142,10 @@ public class MiniGameManager : MonoBehaviour
                     currentWorstPlayer = player.GetPlayerNumber();
                     break;
                 }
+                else
+                {
+                    thereIsAWinner = true;
+                }
 
                 if (player.FillBarValue < currentWorst)
                 {
@@ -151,7 +157,11 @@ public class MiniGameManager : MonoBehaviour
                 player.SetCordLength(player.FillBarValue);
             }
 
-            if (currentWorst > best)
+            if (!thereIsAWinner)
+            {
+                return -1; // No winner
+            }
+            else if (currentWorst > best)
             {
                 best = currentWorst;
                 winner = currentWorstPlayer;

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HitWater : MonoBehaviour {
-
-    public ParticleSystem myPatricleSystem;
+    
     public int numberOfParticles;
 
     void OnTriggerEnter2D(Collider2D other)
@@ -13,7 +12,7 @@ public class HitWater : MonoBehaviour {
 
         if (player != null)
         {
-            myPatricleSystem.transform.position = player.transform.position;
+            ParticleSystem myPatricleSystem = player.GetComponentInChildren<ParticleSystem>();
             myPatricleSystem.Emit(numberOfParticles);
             player.PlayerHitWater(gameObject.transform.position);
         }

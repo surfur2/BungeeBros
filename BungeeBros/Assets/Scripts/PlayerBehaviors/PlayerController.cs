@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour {
     private Sprite divingSprite;
 
     public Sprite forwardHarness;
-    public Sprite backHarness;
     public SpriteRenderer harnessSpriteRenderer;
 
     private bool playerJumped;
@@ -40,15 +39,6 @@ public class PlayerController : MonoBehaviour {
         myRigidBody = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
-    {   
-        if(Input.GetKeyDown("space") && !playerJumped)
-        {
-            myBungeeController.SetPlayerGuess(fillBarValue);
-            JumpPlayer();
-        }
-    }
-
     public void InitPlayer(int _playerNumber, int _playerTeam, Sprite _restingSprite, Sprite _divingSprite)
     {
         playerSpriteRenderer = GetComponent<SpriteRenderer>();
@@ -58,6 +48,9 @@ public class PlayerController : MonoBehaviour {
 
         restingSprite = _restingSprite;
         divingSprite = _divingSprite;
+
+        // Add the colored rope material
+        GetComponentInChildren<LineRenderer>(true).sharedMaterial = MiniGameManager.Instance.ropeMaterials[playerTeam - 1];
 
         ChangeToForwardHarness();
     }
@@ -119,12 +112,13 @@ public class PlayerController : MonoBehaviour {
         myRopeController.TurnOffRope();
         myBungeeController.SetPlayerGuess(MiniGameManager.Instance.MaxCordLength);
         myRigidBody.simulated = false;
+        transform.position = new Vector3(transform.position.x, transform.position.y - 1.1f, transform.position.z);
     }
 
     private void ChangeToForwardHarness()
     {
         playerSpriteRenderer.sprite = restingSprite;
-        harnessSpriteRenderer.sprite = forwardHarness;
+        harnessSpriteRenderer.sprite = MiniGameManager.Instance.frontHarnessTints[playerTeam - 1];
 
         //Offset to make the harness line up with the dive sprite
         // TODO: this is shit and needs to not be a magic number

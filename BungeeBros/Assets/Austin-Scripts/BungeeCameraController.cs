@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BungeeCameraController : MonoBehaviour
 {
     // Instance Variables
+    // public Camera mainCamera;
 
     public float upTileSpeed;
     public float downTileSpeed;
@@ -13,16 +15,22 @@ public class BungeeCameraController : MonoBehaviour
 
     public BungeeLevelGenerator levelGenerator;
 
+    public Text winnerDisplayText;
+
     private float timer;
-    public int winnerIndex;
-    public int furthestIndex;
+    private int winnerIndex;
+    private int furthestIndex;
 
-
+    private const float errorToWinner = 0.2f;
+    private const float timeToShowWinnerText = 1.5f;
+    
     // Use this for initialization
     void Start()
     {
         upTileSpeed = upTileSpeed <= 0 ? 1 : upTileSpeed;
         downTileSpeed = downTileSpeed <= 0 ? 1 : downTileSpeed;
+
+        winnerDisplayText.enabled = false;
     }
 
     // Update is called once per frame
@@ -136,35 +144,45 @@ public class BungeeCameraController : MonoBehaviour
     /// </summary>
     private void ChaseFurthest()
     {
+        winnerIndex = MiniGameManager.Instance.Winner;
+        furthestIndex = MiniGameManager.Instance.GetMaxCordPlayer();
+
         Vector3 camPos = transform.position;
         camPos.y = MiniGameManager.Instance.Players[furthestIndex].gameObject.transform.position.y;
         transform.position = camPos;
 
-        if(camPos.y <= levelGenerator.WaterObject.transform.position.y)
+        if (winnerIndex == -1)
+        {
+            currentCameraState = BungeeCameraStates.WaitAtBottom;
+            winnerDisplayText.text = "Draw!";
+            winnerDisplayText.color = Color.yellow;
+            StartCoroutine("TurnOnTextAfterSeconds", timeToShowWinnerText);
+        }
+        else if(camPos.y <= levelGenerator.WaterObject.transform.position.y)
         {
             currentCameraState = BungeeCameraStates.ChaseWinner;
+            winnerDisplayText.text = "Winner!";
+            winnerDisplayText.color = Color.green;
             timer = 0;
         }
     }
 
     private void ChaseWinner()
     {
-        if (winnerIndex >= 0)
-        {
-            timer += Time.deltaTime;
+        timer += Time.deltaTime;
 
-            Vector3 newCamPos = Vec3SmoothLerp(
-                levelGenerator.WaterObject.transform.position,
-                MiniGameManager.Instance.Players[winnerIndex].transform.position,
-                timer,
-                5);
+        Vector3 newCamPos = Vec3SmoothLerp(
+            levelGenerator.WaterObject.transform.position, 
+            MiniGameManager.Instance.Players[winnerIndex].transform.position, 
+            timer, 
+            5);
 
-            newCamPos.z = Camera.main.gameObject.transform.position.z;
-            Camera.main.gameObject.transform.position = newCamPos;
-        }
-        else
+        newCamPos.z = Camera.main.gameObject.transform.position.z;
+        Camera.main.gameObject.transform.position = newCamPos;
+
+        if ((Camera.main.gameObject.transform.position - newCamPos).magnitude < errorToWinner)
         {
-            currentCameraState = BungeeCameraStates.WaitAtBottom;
+            StartCoroutine("TurnOnTextAfterSeconds", timeToShowWinnerText);
         }
     }
 
@@ -185,6 +203,13 @@ public class BungeeCameraController : MonoBehaviour
     private float Smootherstep(float t)
     {
         return t * t * t * (t * (6f * t - 15f) + 10f);
+    }
+
+    private IEnumerator TurnOnTextAfterSeconds (float turnOnAfter)
+    {
+        yield return new WaitForSeconds(turnOnAfter);
+
+        winnerDisplayText.enabled = true;
     }
 
     #endregion
