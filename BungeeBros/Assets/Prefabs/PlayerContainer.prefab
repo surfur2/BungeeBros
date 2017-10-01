@@ -232,7 +232,7 @@ Rigidbody2D:
   m_Mass: 200
   m_LinearDrag: 1
   m_AngularDrag: 0.25
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -290,7 +290,6 @@ MonoBehaviour:
   restingSprite: {fileID: 21300000, guid: 973c90ee76138ce4c8b4ea2bdc614e73, type: 3}
   divingSprite: {fileID: 21300000, guid: 2e4cf459f74bcd143b826078528e176e, type: 3}
   forwardHarness: {fileID: 21300000, guid: 69c83b0e91b0f864eb559e9c665c166f, type: 3}
-  backHarness: {fileID: 21300000, guid: 39b270d1fb5212a4492752f8e3d49855, type: 3}
   harnessSpriteRenderer: {fileID: 212092274491260844}
 --- !u!114 &114637525294666622
 MonoBehaviour:
