@@ -15,6 +15,8 @@ public class BungeeCameraController : MonoBehaviour
     public BungeeLevelGenerator levelGenerator;
 
     private float timer;
+    private int winnerIndex;
+    private int furthestIndex;
 
 
     // Use this for initialization
@@ -122,6 +124,39 @@ public class BungeeCameraController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Makes the camera chase after the jumper who goes the furthest
+    /// </summary>
+    private void ChaseFurthest()
+    {
+        winnerIndex = MiniGameManager.Instance.GetWinner_Balance1();
+        furthestIndex = MiniGameManager.Instance.GetMaxCordPlayer();
+
+        Vector3 camPos = transform.position;
+        camPos.y = MiniGameManager.Instance.Players[furthestIndex].gameObject.transform.position.y;
+        transform.position = camPos;
+
+        if(camPos.y <= levelGenerator.WaterObject.transform.position.y)
+        {
+            currentCameraState = BungeeCameraStates.ChaseWinner;
+            timer = 0;
+        }
+    }
+
+    private void ChaseWinner()
+    {
+        timer += Time.deltaTime;
+
+        Vector3 newCamPos = Vec3SmoothLerp(
+            levelGenerator.WaterObject.transform.position, 
+            MiniGameManager.Instance.Players[winnerIndex].transform.position, 
+            timer, 
+            5);
+
+        newCamPos.z = Camera.main.gameObject.transform.position.z;
+        Camera.main.gameObject.transform.position = newCamPos;
+    }
+
     //Lerp from a point to another point (with SmootherStep)
     private Vector3 Vec3SmoothLerp(Vector3 start, Vector3 end, float time, float totalTime)
     {
@@ -149,5 +184,7 @@ public enum BungeeCameraStates
     WaitAtTop,
     WaitAtBottom,
     PanToTop,
-    PanToBottom
+    PanToBottom,
+    ChaseFurthest,
+    ChaseWinner
 };
