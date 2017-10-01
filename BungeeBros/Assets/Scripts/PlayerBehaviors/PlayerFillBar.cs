@@ -7,15 +7,25 @@ public class PlayerFillBar : MonoBehaviour {
     public float fillSpeed;
     public float reductionSpeed;
 
-	// Update is called once per frame
-	void Update () {
-		if (InputManager.instance.GetButtonDownForPlayer(1, "A"))
+    private PlayerController playerController;
+
+    private void Start()
+    {
+        playerController = GetComponent<PlayerController>();
+    }
+
+    // Update is called once per frame
+    void Update () {
+        if (!playerController.HasPlayerJumped())
         {
-            //MinigameManager.AddPlayerScore (Time.deltaTime * fillSpeed);
+            if (InputManager.instance.GetButtonDownForPlayer(playerController.GetPlayerNumber(), "A"))
+            {
+                playerController.AddValueToScore(Time.deltaTime * fillSpeed);
+            }
+            else
+            {
+                playerController.AddValueToScore(-(Time.deltaTime * reductionSpeed));
+            }
         }
-        else
-        {
-            //MinigameManager.AddPlayerSocre(Time.deltaTime * reductionSpeed);
-        }
-	}
+    }
 }
