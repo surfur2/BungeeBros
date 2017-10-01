@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour {
 
     public void InitPlayer(int _playerNumber, int _playerTeam, Sprite _restingSprite, Sprite _divingSprite)
     {
-        mySpriteRenderer = GetComponent<SpriteRenderer>();
+        playerSpriteRenderer = GetComponent<SpriteRenderer>();
 
         playerNumber = _playerNumber;
         playerTeam = _playerTeam;
