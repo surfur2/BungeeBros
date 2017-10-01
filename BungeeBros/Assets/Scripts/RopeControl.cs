@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RopeControl : MonoBehaviour {
+    public Transform anchorPosition;
+    public Transform playerPosition;
+
     private LineRenderer myLineRenderer;
     private Vector3[] lineRendererPoints = new Vector3[2];
 
@@ -15,7 +18,7 @@ public class RopeControl : MonoBehaviour {
 
     private void Update()
     {
-        lineRendererPoints.SetValue(playerPoisiton.position, 1);
+        lineRendererPoints.SetValue(playerPosition.position, 1);
         myLineRenderer.SetPositions(lineRendererPoints);
     }
 }
