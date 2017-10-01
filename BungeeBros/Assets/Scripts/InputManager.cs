@@ -24,7 +24,7 @@ public class InputManager : MonoBehaviour {
     public bool GetButtonDownForPlayer (int playerNumber, string button)
     {
         if (isDevMode)
-            return Input.GetKey("a");
+            return Input.GetKeyDown("a");
 
         return Input.GetButtonDown(button + "_P"+ playerNumber);
     }

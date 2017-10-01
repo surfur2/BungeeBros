@@ -11,6 +11,8 @@ public class BungeeBarUI : MonoBehaviour
     private GameObject barScaler;
     private GameObject pointer;
     private SpriteRenderer fillBarRenderer;
+    private TextMesh lowText;
+    private TextMesh highText;
 
     private float pointerHalfHeight;
 
@@ -22,6 +24,12 @@ public class BungeeBarUI : MonoBehaviour
         pointer = transform.Find("Pointer").gameObject;
         fillBarRenderer = barScaler.transform.Find("FillBar").gameObject.GetComponent<SpriteRenderer>();
         pointerHalfHeight = pointer.GetComponent<SpriteRenderer>().bounds.extents.y;
+
+        lowText = transform.Find("LowText").gameObject.GetComponent<TextMesh>();
+        highText = transform.Find("HighText").gameObject.GetComponent<TextMesh>();
+
+        lowText.gameObject.GetComponent<MeshRenderer>().sortingLayerName = "UI Layer";
+        highText.gameObject.GetComponent<MeshRenderer>().sortingLayerName = "UI Layer";
     }
 
     // Update is called once per frame
@@ -40,6 +48,10 @@ public class BungeeBarUI : MonoBehaviour
     /// <param name="max">The maximum value of the player selection.</param>
     public void SetBarRepresentation(float playerSelection, float min, float max)
     {
+        //Set displayed min and max
+        lowText.text = min.ToString();
+        highText.text = max.ToString();
+
         // Clamp the selection between the min and max
         playerSelection = Mathf.Clamp(playerSelection, min, max);
 
