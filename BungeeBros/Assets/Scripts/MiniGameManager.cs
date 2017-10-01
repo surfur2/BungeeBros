@@ -14,7 +14,7 @@ public class MiniGameManager : MonoBehaviour
     public List<Sprite> backHarnessTints = new List<Sprite>();
     public List<Material> ropeMaterials = new List<Material>();
     public float RoundTimer = 10;
-    public float totalCordLength = 15f;
+    public float totalCordLength = 100f;
 
     private static MiniGameManager _instance = null;
     private List<PlayerController> players = new List<PlayerController>();
@@ -22,8 +22,8 @@ public class MiniGameManager : MonoBehaviour
     private BungeeLevelGenerator levelGen;
     private BungeeUIManager uiManager;
     private BungeeCameraController camControl;
-    private float minCordLength = 6.5f;
-    private float maxCordLength = 5.5f;
+    private float minCordLength = 10f;
+    private float maxCordLength;
     private float startTime;
     private bool jumped = false;
     private float countdownTimer;
@@ -58,7 +58,7 @@ public class MiniGameManager : MonoBehaviour
         uiManager = GetComponent<BungeeUIManager>();
         camControl = Camera.main.gameObject.GetComponent<BungeeCameraController>();
 
-        maxCordLength = Random.Range(2.0f, totalCordLength);
+        maxCordLength = Random.Range(minCordLength + 20.0f, totalCordLength * 0.8f);
         levelGen.InitLevel(maxCordLength);
 
         MakePlayers(levelGen.PlayerStartLocations);

@@ -29,7 +29,7 @@ public class PlayerBungeeControl : MonoBehaviour {
 	void Update () {
 		if (readyToJump)
         {
-            float currentFallDistance = (gameObject.transform.position - playerStartingPosition).magnitude * Globals.UNITY_UNIT_TO_METERS;
+            float currentFallDistance = (gameObject.transform.position - playerStartingPosition).magnitude / Globals.UNITY_UNIT_TO_METERS;
 
             if (Mathf.Abs(currentFallDistance - lengthOfCord) < errorForFall && myRigidBody.velocity.magnitude < velocityError)
             {

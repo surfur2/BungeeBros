@@ -177,9 +177,11 @@ public class BungeeCameraController : MonoBehaviour
     {
         timer += Time.deltaTime;
 
+        Vector3 target = new Vector3(0, MiniGameManager.Instance.Players[winnerIndex - 1].transform.position.y, Camera.main.gameObject.transform.position.z);
+
         Vector3 newCamPos = Vec3SmoothLerp(
-            levelGenerator.WaterObject.transform.position, 
-            MiniGameManager.Instance.Players[winnerIndex].transform.position, 
+            levelGenerator.WaterObject.transform.position,
+            target, 
             timer, 
             5);
 
