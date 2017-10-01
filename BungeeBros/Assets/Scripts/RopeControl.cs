@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class RopeControl : MonoBehaviour {
 
-    public float maxRopeDistance;
+    public Transform anchorPosition;
+    public Transform playerPoisiton;
 
-    private SpringJoint2D
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private LineRenderer myLineRenderer;
+    private Vector3[] lineRendererPoints = new Vector3[2];
+
+    private void Start()
+    {
+        myLineRenderer = GetComponent<LineRenderer>();
+
+        lineRendererPoints.SetValue(anchorPosition.position, 0);
+    }
+
+    private void Update()
+    {
+        lineRendererPoints.SetValue(playerPoisiton.position, 1);
+        myLineRenderer.SetPositions(lineRendererPoints);
+    }
 }
