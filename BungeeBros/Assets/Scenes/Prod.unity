@@ -139,9 +139,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b86efbd2729aab45bbe54f7189bc830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upTileSpeed: 1
+  upTileSpeed: 0.4
   downTileSpeed: 0.3
-  currentCameraState: 0
+  currentCameraState: 2
   levelGenerator: {fileID: 351205297}
   winnerDisplayText: {fileID: 564511849}
 --- !u!81 &96421971
@@ -256,7 +256,17 @@ Prefab:
     - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
         type: 2}
       propertyPath: RoundTimer
-      value: 2
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerToTeam.Array.data[2]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: playerToTeam.Array.data[3]
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d2e9e713b880124d966f58a298af2c3, type: 2}

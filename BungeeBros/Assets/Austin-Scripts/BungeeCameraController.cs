@@ -145,10 +145,16 @@ public class BungeeCameraController : MonoBehaviour
     private void ChaseFurthest()
     {
         winnerIndex = MiniGameManager.Instance.Winner;
-        furthestIndex = MiniGameManager.Instance.GetMaxCordPlayer();
+        furthestIndex = MiniGameManager.Instance.FurthestIndex;
 
         Vector3 camPos = transform.position;
-        camPos.y = MiniGameManager.Instance.Players[furthestIndex].gameObject.transform.position.y;
+        camPos.y = MiniGameManager.Instance.Players[furthestIndex - 1].gameObject.transform.position.y;
+
+        if(camPos.y >= levelGenerator.BridgeObject.transform.position.y)
+        {
+            camPos.y = levelGenerator.BridgeObject.transform.position.y;
+        }
+
         transform.position = camPos;
 
         if (winnerIndex == -1)
@@ -158,7 +164,7 @@ public class BungeeCameraController : MonoBehaviour
             winnerDisplayText.color = Color.yellow;
             StartCoroutine("TurnOnTextAfterSeconds", timeToShowWinnerText);
         }
-        else if(camPos.y <= levelGenerator.WaterObject.transform.position.y)
+        else if (camPos.y <= levelGenerator.WaterObject.transform.position.y)
         {
             currentCameraState = BungeeCameraStates.ChaseWinner;
             winnerDisplayText.text = "Winner!";

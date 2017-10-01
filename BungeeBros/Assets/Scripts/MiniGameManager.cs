@@ -28,6 +28,7 @@ public class MiniGameManager : MonoBehaviour
     private bool jumped = false;
     private float countdownTimer;
     private int winner = -1;
+    private int furthestIndex = -1;
 
     public static MiniGameManager Instance { get { return _instance; } }
     public List<PlayerController> Players { get { return players; } }
@@ -35,6 +36,7 @@ public class MiniGameManager : MonoBehaviour
     public float MaxCordLength { get { return maxCordLength; } }
     public float CountdownTimer { get { return countdownTimer; } }
     public int Winner { get { return winner; } }
+    public int FurthestIndex { get { return furthestIndex; } }
 
     private void Awake()
     {
@@ -70,21 +72,25 @@ public class MiniGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        countdownTimer = Time.time - startTime;
-        if (countdownTimer >= RoundTimer && !jumped)
+        if (camControl.currentCameraState == BungeeCameraStates.WaitAtTop)
         {
-            winner = GetWinner_Balance1();
-
-            // Tell camera to begin chasing the furthest jumper.
-            camControl.currentCameraState = BungeeCameraStates.ChaseFurthest;
-
-            // Make players jump
-            foreach (PlayerController player in players)
+            countdownTimer += Time.deltaTime;
+            if (countdownTimer >= RoundTimer && !jumped)
             {
-                player.JumpPlayer();
-            }
+                winner = GetWinner_Balance1();
+                furthestIndex = GetMaxCordPlayer();
 
-            jumped = true;
+                // Tell camera to begin chasing the furthest jumper.
+                camControl.currentCameraState = BungeeCameraStates.ChaseFurthest;
+
+                // Make players jump
+                foreach (PlayerController player in players)
+                {
+                    player.JumpPlayer();
+                }
+
+                jumped = true;
+            }
         }
     }
 
@@ -126,7 +132,6 @@ public class MiniGameManager : MonoBehaviour
     {
         float best = 0;
         int winner = -1;
-        bool thereIsAWinner = false;
         // Check the best score out of all teams
         foreach (Team team in teamMan.Teams)
         {
@@ -140,11 +145,10 @@ public class MiniGameManager : MonoBehaviour
                 {
                     currentWorst = -1;
                     currentWorstPlayer = player.GetPlayerNumber();
+
+                    // Set the cord length for each player separately
+                    player.SetCordLength(player.FillBarValue);
                     break;
-                }
-                else
-                {
-                    thereIsAWinner = true;
                 }
 
                 if (player.FillBarValue < currentWorst)
@@ -157,11 +161,7 @@ public class MiniGameManager : MonoBehaviour
                 player.SetCordLength(player.FillBarValue);
             }
 
-            if (!thereIsAWinner)
-            {
-                return -1; // No winner
-            }
-            else if (currentWorst > best)
+            if (currentWorst > best)
             {
                 best = currentWorst;
                 winner = currentWorstPlayer;
@@ -273,19 +273,13 @@ public class MiniGameManager : MonoBehaviour
         float currentMaxCord = 0;
         int currentMaxPlayer = 1;
 
-        int playerIterator = 1;
         foreach(PlayerController player in players)
         {
-            if (player.GetCordLength() >= maxCordLength)
-                return currentMaxPlayer;
-
-            if (player.GetCordLength() > currentMaxCord)
+            if (player.GetCordLength() >= currentMaxCord)
             {
+                currentMaxPlayer = player.GetPlayerNumber();
                 currentMaxCord = player.GetCordLength();
-                currentMaxPlayer = playerIterator;
             }
-
-            playerIterator++;
         }
 
         return currentMaxPlayer;
