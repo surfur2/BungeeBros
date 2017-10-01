@@ -19,6 +19,7 @@ public class MiniGameManager : MonoBehaviour
     private TeamManager teamMan;
     private BungeeLevelGenerator levelGen;
     private BungeeUIManager uiManager;
+    private BungeeCameraController camControl;
     private float minCordLength = 50;
     private float maxCordLength = 90;
     private float startTime;
@@ -49,6 +50,7 @@ public class MiniGameManager : MonoBehaviour
         teamMan = GetComponent<TeamManager>();
         levelGen = GetComponent<BungeeLevelGenerator>();
         uiManager = GetComponent<BungeeUIManager>();
+        camControl = Camera.main.gameObject.GetComponent<BungeeCameraController>();
 
         maxCordLength = Random.Range(minCordLength * 2, totalCordLength);
         levelGen.InitLevel(maxCordLength);
@@ -67,10 +69,8 @@ public class MiniGameManager : MonoBehaviour
         countdownTimer = Time.time - startTime;
         if (countdownTimer >= RoundTimer && !jumped)
         {
-            // Calculate winner
-            int winner = GetWinner_Balance1();
-            int maxCordPlayer = GetMaxCordPlayer();
-
+            // Tell camera to begin chasing the furthest jumper.
+            camControl.currentCameraState = BungeeCameraStates.ChaseFurthest;
 
             // Make players jump
             foreach (PlayerController player in players)
@@ -254,7 +254,7 @@ public class MiniGameManager : MonoBehaviour
     }
 
     // Get player with the maximum cord length
-    int GetMaxCordPlayer()
+    public int GetMaxCordPlayer()
     {
         float currentMaxCord = 0;
         int currentMaxPlayer = 1;
