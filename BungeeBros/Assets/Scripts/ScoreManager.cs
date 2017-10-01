@@ -28,21 +28,21 @@ public class ScoreManager : MonoBehaviour
         int winner = -1;
 
         // Check the best score out of all teams
-        foreach (Team team in teamMan.teams)
+        foreach (Team team in teamMan.Teams)
         {
             float currentWorst = MAX_LENGTH;
 
             // Get the worst score from all players in the team
-            foreach (Player player in team.players)
+            foreach (PlayerController player in team.players)
             {
-                if (player.score >= MAX_LENGTH)
+                if (player.GetPlayerSocre() >= MAX_LENGTH)
                 {
                     currentWorst = -1;
                     break;
                 }
 
-                if (player.score < currentWorst)
-                    currentWorst = player.score;
+                if (player.GetPlayerSocre() < currentWorst)
+                    currentWorst = player.GetPlayerSocre();
             }
 
             if (currentWorst > best)
@@ -65,14 +65,14 @@ public class ScoreManager : MonoBehaviour
         int winner = -1;
 
         // Check the best score out of all teams
-        foreach (Team team in teamMan.teams)
+        foreach (Team team in teamMan.Teams)
         {
             float currentSum = 0;
 
             // Get the sum of scores of all players in the team
-            foreach (Player player in team.players)
+            foreach (PlayerController player in team.players)
             {
-                currentSum += player.score;
+                currentSum += player.GetPlayerSocre();
                 if (currentSum >= MAX_LENGTH)
                 {
                     currentSum = -1;
@@ -100,14 +100,14 @@ public class ScoreManager : MonoBehaviour
         int winner = -1;
 
         // Check the best score out of all teams
-        foreach (Team team in teamMan.teams)
+        foreach (Team team in teamMan.Teams)
         {
             float currentSum = 0;
 
             // Get the worst score from all players in the team
-            foreach (Player player in team.players)
+            foreach (PlayerController player in team.players)
             {
-                currentSum += player.score;
+                currentSum += player.GetPlayerSocre();
                 if (currentSum >= MAX_LENGTH)
                 {
                     currentSum = -1;
@@ -135,7 +135,7 @@ public class ScoreManager : MonoBehaviour
     {
         for (int i = 0; i < SCORE_HACK.Count; i++)
         {
-            teamMan.players[i].score = SCORE_HACK[i];
+            //MiniGameManager.Instance.AddToPlayerScore(i + 1, SCORE_HACK[i]);
         }
     }
 

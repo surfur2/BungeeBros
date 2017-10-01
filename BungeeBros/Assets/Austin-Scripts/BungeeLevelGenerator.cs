@@ -28,19 +28,27 @@ public class BungeeLevelGenerator : MonoBehaviour
     {
         get { return waterObject; }
     }
+    public Vector3[] PlayerStartLocations
+    {
+        get { return playerStartLocations; }
+    }
 
 
     // Use this for initialization
     void Start()
     {
-        GenerateNewLevel(levelHeight);
-        playerStartLocations = new Vector3[teamMan.players.Count];
-        SetupPlayerLanes();
     }
 
     // Update is called once per frame
     void Update()
     {
+    }
+
+    public void InitLevel()
+    {
+        GenerateNewLevel(levelHeight);
+        playerStartLocations = new Vector3[MiniGameManager.Instance.Players.Count];
+        SetupPlayerLanes();
     }
 
 
@@ -103,19 +111,11 @@ public class BungeeLevelGenerator : MonoBehaviour
         // Loop through the empty array of length 
         for (int i = 0; i < playerStartLocations.Length; i++)
         {
-            // Create player objects in the world.
-            GameObject newPlayer = new GameObject("Player" + (i + 1));
-            newPlayer.AddComponent<SpriteRenderer>().sprite = teamMan.players[i].playerCharacterSprite;
-            newPlayer.transform.localScale = new Vector3(.2f, .2f);
-
             // Calculate and save their starting positions.
             playerStartLocations[i] = new Vector3(
                 farLeft + (separationDistance * (i + 1)),
-                bridgeYLocation + newPlayer.GetComponent<SpriteRenderer>().bounds.extents.y,
+                bridgeYLocation,
                 -1);
-
-            // Move them there.
-            newPlayer.transform.position = playerStartLocations[i];
         }
     }
     #endregion
