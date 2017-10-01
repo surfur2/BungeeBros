@@ -28,7 +28,7 @@ public class ScoreManager : MonoBehaviour
         int winner = -1;
 
         // Check the best score out of all teams
-        foreach (Team team in teamMan.teams)
+        foreach (Team team in teamMan.Teams)
         {
             float currentWorst = MAX_LENGTH;
 
@@ -65,7 +65,7 @@ public class ScoreManager : MonoBehaviour
         int winner = -1;
 
         // Check the best score out of all teams
-        foreach (Team team in teamMan.teams)
+        foreach (Team team in teamMan.Teams)
         {
             float currentSum = 0;
 
@@ -100,7 +100,7 @@ public class ScoreManager : MonoBehaviour
         int winner = -1;
 
         // Check the best score out of all teams
-        foreach (Team team in teamMan.teams)
+        foreach (Team team in teamMan.Teams)
         {
             float currentSum = 0;
 
@@ -135,7 +135,7 @@ public class ScoreManager : MonoBehaviour
     {
         for (int i = 0; i < SCORE_HACK.Count; i++)
         {
-            teamMan.players[i].score = SCORE_HACK[i];
+            MiniGameManager.Instance.AddToPlayerScore(i + 1, SCORE_HACK[i]);
         }
     }
 

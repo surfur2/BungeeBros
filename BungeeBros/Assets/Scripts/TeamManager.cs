@@ -5,22 +5,8 @@ using GameUtilities;
 
 public class TeamManager : MonoBehaviour {
 
-    public List<int> playerToTeam = new List<int>();
-    public List<Player> players = new List<Player>();
-    public List<Team> teams = new List<Team>();
-
-	// Use this for initialization
-	void Start ()
-    {
-        int playerNumber = 1;
-        foreach (int teamNumber in playerToTeam)
-        {
-            players.Add(new Player(playerNumber, teamNumber));
-            playerNumber++;
-        }
-
-        MakeTeams(players);
-	}
+    public List<Team> Teams { get { return teams; } }
+    List<Team> teams = new List<Team>();
 
     /// <summary>
     /// Makes Teams from the list of players
