@@ -5,7 +5,7 @@ using UnityEngine;
 public class BungeeCameraController : MonoBehaviour
 {
     // Instance Variables
-    public Camera mainCamera;
+    // public Camera mainCamera;
 
     public float upTileSpeed;
     public float downTileSpeed;
@@ -62,7 +62,7 @@ public class BungeeCameraController : MonoBehaviour
         float panTime = cliffTime * levelGenerator.levelHeight;
 
         Vector3 newCamPos = Vec3SmoothLerp(levelGenerator.WaterObject.transform.position, levelGenerator.BridgeObject.transform.position, timer, panTime);
-        newCamPos.z = mainCamera.gameObject.transform.position.z;
+        newCamPos.z = Camera.main.gameObject.transform.position.z;
         
         if(newCamPos.y >= levelGenerator.BridgeObject.transform.position.y)
         {
@@ -71,7 +71,7 @@ public class BungeeCameraController : MonoBehaviour
             timer = 0;
         }
 
-        mainCamera.gameObject.transform.position = newCamPos;
+        Camera.main.gameObject.transform.position = newCamPos;
     }
 
     /// <summary>
@@ -84,7 +84,7 @@ public class BungeeCameraController : MonoBehaviour
         float panTime = cliffTime * levelGenerator.levelHeight;
 
         Vector3 newCamPos = Vec3SmoothLerp(levelGenerator.BridgeObject.transform.position, levelGenerator.WaterObject.transform.position, timer, panTime);
-        newCamPos.z = mainCamera.gameObject.transform.position.z;
+        newCamPos.z = Camera.main.gameObject.transform.position.z;
 
         if (newCamPos.y <= levelGenerator.WaterObject.transform.position.y)
         {
@@ -93,7 +93,7 @@ public class BungeeCameraController : MonoBehaviour
             timer = 0;
         }
 
-        mainCamera.gameObject.transform.position = newCamPos;
+        Camera.main.gameObject.transform.position = newCamPos;
     }
 
     /// <summary>
@@ -104,8 +104,8 @@ public class BungeeCameraController : MonoBehaviour
         if (levelGenerator.WaterObject != null)
         {
             Vector3 newCamPos = levelGenerator.WaterObject.transform.position;
-            newCamPos.z = mainCamera.transform.position.z;
-            mainCamera.transform.position = newCamPos;
+            newCamPos.z = Camera.main.transform.position.z;
+            Camera.main.transform.position = newCamPos;
         }
     }
 
@@ -117,8 +117,8 @@ public class BungeeCameraController : MonoBehaviour
         if (levelGenerator.BridgeObject != null)
         {
             Vector3 newCamPos = levelGenerator.BridgeObject.transform.position;
-            newCamPos.z = mainCamera.transform.position.z;
-            mainCamera.transform.position = newCamPos;
+            newCamPos.z = Camera.main.transform.position.z;
+            Camera.main.transform.position = newCamPos;
         }
     }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace GameUtilities
 {
@@ -10,6 +11,7 @@ namespace GameUtilities
         public int playerNumber;
         public float score;
         public int teamNumber;
+        public Sprite playerCharacterSprite;
 
         public Player()
         {
@@ -17,10 +19,11 @@ namespace GameUtilities
             teamNumber = 1;
         }
 
-        public Player(int playerNum, int teamNum)
+        public Player(int playerNum, int teamNum, Sprite playerSprite)
         {
             playerNumber = playerNum;
             teamNumber = teamNum;
+            playerCharacterSprite = playerSprite;
         }
     }
 
