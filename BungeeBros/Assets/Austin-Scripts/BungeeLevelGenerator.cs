@@ -6,9 +6,9 @@ using GameUtilities;
 public class BungeeLevelGenerator : MonoBehaviour
 {
     // Instance Variables
-    public Sprite bridgeArt;
-    public Sprite cliffArt;
-    public Sprite waterArt;
+    public GameObject bridgePrefab;
+    public GameObject cliffPrefab;
+    public GameObject waterPrefab;
 
     public float bridgeYLocation;
     public float waterYLocation;
@@ -75,8 +75,7 @@ public class BungeeLevelGenerator : MonoBehaviour
         GameObject worldContainer = new GameObject("WorldContainer");
 
         // Create bridge
-        bridgeObject = new GameObject("Bridge");
-        bridgeObject.AddComponent<SpriteRenderer>().sprite = bridgeArt;
+        bridgeObject = Instantiate(bridgePrefab);
         bridgeObject.transform.parent = worldContainer.transform;
 
         float bridgeSpriteHeight = bridgeObject.GetComponent<SpriteRenderer>().bounds.extents.y * 2;
@@ -84,9 +83,10 @@ public class BungeeLevelGenerator : MonoBehaviour
         // Create cliffs
         for (int i = 1; i < numCliffs + 1; i++)
         {
-            GameObject cliff = new GameObject("Cliff" + i);
-            cliff.AddComponent<SpriteRenderer>().sprite = cliffArt;
+           
+            GameObject cliff = Instantiate(cliffPrefab);
 
+            // Adjust the position of the tile
             Vector3 newCliffPos = cliff.transform.position;
             newCliffPos.y -= bridgeSpriteHeight * i;
             cliff.transform.position = newCliffPos;
@@ -95,8 +95,7 @@ public class BungeeLevelGenerator : MonoBehaviour
         }
 
         // Create Water
-        waterObject = new GameObject("Water");
-        waterObject.AddComponent<SpriteRenderer>().sprite = waterArt;
+        waterObject = Instantiate(waterPrefab);
 
         Vector3 newWaterPos = waterObject.transform.position;
         newWaterPos.y = (bridgeYLocation - height + waterYLocation) / (Globals.UNITY_UNIT_TO_METERS / 10.8f);

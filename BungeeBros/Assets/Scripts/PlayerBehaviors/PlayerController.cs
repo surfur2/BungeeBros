@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour {
 
     private void Update()
     {   
-        if(Input.GetKeyDown("space"))
+        if(Input.GetKeyDown("space") && !playerJumped)
         {
             myBungeeController.SetPlayerGuess(fillBarValue);
             JumpPlayer();
