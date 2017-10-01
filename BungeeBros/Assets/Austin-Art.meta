@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:BungeeBros/Assets/Austin-Art.meta
 guid: c647cf9dfc759284fbdb770f1d2b7db8
 folderAsset: yes
 timeCreated: 1506826118
+=======
+guid: 91d63c7e025936f4d850298c6206319c
+folderAsset: yes
+timeCreated: 1506825954
+>>>>>>> 0e878a2c95534097d5884fc7aaaa1a9286ec4cfc:BungeeBros/Assets/Art.meta
 licenseType: Pro
 DefaultImporter:
   userData: 
