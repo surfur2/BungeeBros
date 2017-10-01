@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 12
-  productGUID: 4fd58b78ea2fdca4a9b95ca5bf580bcb
+  productGUID: 0b1384f6223522c46ad62fec41d784b5
   AndroidProfiler: 0
   defaultScreenOrientation: 4
   targetDevice: 2
@@ -586,12 +586,11 @@ PlayerSettings:
     daydream:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
-  cloudServicesEnabled:
-    UNet: 1
+  cloudServicesEnabled: {}
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 9577837f-e4a9-45c7-89f6-291a2eeb0f36
-  projectName: BungeeBros
+  cloudProjectId: f4259318-c32e-45df-8b77-1c4f15aa42d7
+  projectName: BungeeBros (1)
   organizationId: surfur
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
