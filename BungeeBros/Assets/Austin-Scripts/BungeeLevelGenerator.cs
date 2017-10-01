@@ -10,14 +10,20 @@ public class BungeeLevelGenerator : MonoBehaviour
     public Sprite cliffArt;
     public Sprite waterArt;
 
-    public int levelHeight;
     public float bridgeYLocation;
+    public float waterYLocation;
 
     public TeamManager teamMan;
 
     private GameObject bridgeObject;
     private GameObject waterObject;
     private Vector3[] playerStartLocations;
+    private int numCliffs;
+
+    public int NumCliffs
+    {
+        get { return numCliffs; }
+    }
 
 
     public GameObject BridgeObject
@@ -44,9 +50,9 @@ public class BungeeLevelGenerator : MonoBehaviour
     {
     }
 
-    public void InitLevel()
+    public void InitLevel(float lengthToWater)
     {
-        GenerateNewLevel(levelHeight);
+        GenerateNewLevel(lengthToWater);
         playerStartLocations = new Vector3[MiniGameManager.Instance.playerToTeam.Count];
         SetupPlayerLanes();
     }
@@ -57,10 +63,13 @@ public class BungeeLevelGenerator : MonoBehaviour
     /// Generates a new level
     /// </summary>
     /// <param name="height">The height of the level. Cannot be less than 1.</param>
-    private void GenerateNewLevel(int height)
+    private void GenerateNewLevel(float height)
     {
         // Prevent less than one height
         height = height < 1 ? 1 : height;
+
+        //How many cliff tiles
+        numCliffs = (int)(height / Globals.UNITY_UNIT_TO_METERS) + 1;
 
         // Create container gameobject
         GameObject worldContainer = new GameObject("WorldContainer");
@@ -73,7 +82,7 @@ public class BungeeLevelGenerator : MonoBehaviour
         float bridgeSpriteHeight = bridgeObject.GetComponent<SpriteRenderer>().bounds.extents.y * 2;
 
         // Create cliffs
-        for (int i = 1; i < height + 1; i++)
+        for (int i = 1; i < numCliffs + 1; i++)
         {
             GameObject cliff = new GameObject("Cliff" + i);
             cliff.AddComponent<SpriteRenderer>().sprite = cliffArt;
@@ -90,7 +99,7 @@ public class BungeeLevelGenerator : MonoBehaviour
         waterObject.AddComponent<SpriteRenderer>().sprite = waterArt;
 
         Vector3 newWaterPos = waterObject.transform.position;
-        newWaterPos.y -= bridgeSpriteHeight * (height + 1);
+        newWaterPos.y = (bridgeYLocation - height + waterYLocation) / (Globals.UNITY_UNIT_TO_METERS / 10.8f);
         waterObject.transform.position = newWaterPos;
 
         waterObject.transform.parent = worldContainer.transform;

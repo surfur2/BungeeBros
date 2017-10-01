@@ -3,29 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameUtilities;
 
-public class MiniGameManager : MonoBehaviour {
+public class MiniGameManager : MonoBehaviour
+{
 
     public GameObject PlayerPrefab;
     public List<int> playerToTeam = new List<int>();
     public List<Sprite> playerRestingArt = new List<Sprite>();
     public List<Sprite> playerDivingArt = new List<Sprite>();
     public float RoundTimer = 10;
-    public float totalCordLength = 500;
+    public float totalCordLength = 150;
 
     private static MiniGameManager _instance = null;
     private List<PlayerController> players = new List<PlayerController>();
     private TeamManager teamMan;
     private BungeeLevelGenerator levelGen;
     private BungeeUIManager uiManager;
-    private float minCordLength = 20;
-    private float maxCordLength = 100;
+    private float minCordLength = 50;
+    private float maxCordLength = 90;
     private float startTime;
     private bool jumped = false;
 
     public static MiniGameManager Instance { get { return _instance; } }
     public List<PlayerController> Players { get { return players; } }
-    public float MinCordLength {  get { return minCordLength; } }
-    public float MaxCordLength {  get { return maxCordLength; } }
+    public float MinCordLength { get { return minCordLength; } }
+    public float MaxCordLength { get { return maxCordLength; } }
 
     private void Awake()
     {
@@ -40,13 +41,14 @@ public class MiniGameManager : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         teamMan = GetComponent<TeamManager>();
         levelGen = GetComponent<BungeeLevelGenerator>();
         uiManager = GetComponent<BungeeUIManager>();
 
-        maxCordLength = Random.Range(100, totalCordLength);
-        levelGen.InitLevel();
+        maxCordLength = Random.Range(minCordLength * 2, totalCordLength);
+        levelGen.InitLevel(maxCordLength);
 
         MakePlayers(levelGen.PlayerStartLocations);
         teamMan.MakeTeams(players);
@@ -54,20 +56,21 @@ public class MiniGameManager : MonoBehaviour {
         uiManager.Init(levelGen.PlayerStartLocations);
 
         startTime = Time.time;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (Time.time - startTime >= RoundTimer && !jumped)
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Time.time - startTime >= RoundTimer && !jumped)
         {
-            foreach(PlayerController player in players)
+            foreach (PlayerController player in players)
             {
                 player.JumpPlayer();
             }
 
             jumped = true;
         }
-	}
+    }
 
     void MakePlayers(Vector3[] spawnPoints)
     {
@@ -91,7 +94,7 @@ public class MiniGameManager : MonoBehaviour {
             {
                 spawn.y += playerRestingArt[i].bounds.extents.y * Mathf.PI;
             }
-            
+
             playerContainer.transform.position = spawn;
 
             players.Add(player);

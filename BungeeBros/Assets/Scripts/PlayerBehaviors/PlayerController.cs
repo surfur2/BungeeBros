@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour {
 
     public void InitPlayer(int _playerNumber, int _playerTeam, Sprite _restingSprite, Sprite _divingSprite)
     {
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
+
         playerNumber = _playerNumber;
         playerTeam = _playerTeam;
 
@@ -84,7 +86,7 @@ public class PlayerController : MonoBehaviour {
             score = MiniGameManager.Instance.MaxCordLength;
         }
 
-        Debug.Log("My current score: "+ score);
+        //Debug.Log("My current score: "+ score);
     }
 
     public void JumpPlayer ()

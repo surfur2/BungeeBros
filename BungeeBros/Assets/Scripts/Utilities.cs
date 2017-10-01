@@ -6,6 +6,10 @@ using UnityEngine;
 
 namespace GameUtilities
 {
+    struct Globals
+    {
+        public const float UNITY_UNIT_TO_METERS = 32.4f;
+    }
     //public class Player
     //{
     //    public int playerNumber;

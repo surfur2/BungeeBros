@@ -59,7 +59,7 @@ public class BungeeCameraController : MonoBehaviour
     private void PanToTop(float cliffTime)
     {
         timer += Time.deltaTime;
-        float panTime = cliffTime * levelGenerator.levelHeight;
+        float panTime = cliffTime * levelGenerator.NumCliffs;
 
         Vector3 newCamPos = Vec3SmoothLerp(levelGenerator.WaterObject.transform.position, levelGenerator.BridgeObject.transform.position, timer, panTime);
         newCamPos.z = Camera.main.gameObject.transform.position.z;
@@ -81,7 +81,7 @@ public class BungeeCameraController : MonoBehaviour
     private void PanToBottom(float cliffTime)
     {
         timer += Time.deltaTime;
-        float panTime = cliffTime * levelGenerator.levelHeight;
+        float panTime = cliffTime * levelGenerator.NumCliffs;
 
         Vector3 newCamPos = Vec3SmoothLerp(levelGenerator.BridgeObject.transform.position, levelGenerator.WaterObject.transform.position, timer, panTime);
         newCamPos.z = Camera.main.gameObject.transform.position.z;
