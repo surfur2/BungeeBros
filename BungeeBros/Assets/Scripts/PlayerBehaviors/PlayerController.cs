@@ -62,17 +62,15 @@ public class PlayerController : MonoBehaviour {
     {
         score += value;
 
-        Debug.Log("Current value of score: " + score);
-
-        if (score < 0.0f)
+        if (score < MiniGameManager.Instance.MinCordLength)
         {
-            score = 0.0f;
+            score = MiniGameManager.Instance.MinCordLength;
         }
 
-        /*if (score > MAX_SCORE)
+        if (score > MiniGameManager.Instance.MaxCordLength)
         {
-            score = MAX_SCORE;
-        }*/
+            score = MiniGameManager.Instance.MaxCordLength;
+        }
     }
 
     public void JumpPlayer ()
