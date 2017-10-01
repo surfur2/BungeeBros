@@ -8,7 +8,8 @@ public class PlayerBungeeControl : MonoBehaviour {
     public float lengthOfCord;
 
     private Vector3 playerStartingPosition;
-    private bool reachedRestingLocation = false;
+    private bool reachedRestingLocation;
+    private bool readyToJump;
     private const float bungeeThreshhold = 0.2f;
     private const float errorForFall = 0.2f;
     private const float velocityError = 0.87f;
@@ -22,11 +23,12 @@ public class PlayerBungeeControl : MonoBehaviour {
         playerStartingPosition = gameObject.transform.position;
         myRigidBody = gameObject.GetComponent<Rigidbody2D>();
         reachedRestingLocation = false;
+        readyToJump = false;
     }
 	
 	// Update is called once per frame
 	void Update () {
-		if (lengthOfCord > 0.0f && !reachedRestingLocation)
+		if (readyToJump)
         {
             float currentFallDistance = (gameObject.transform.position - playerStartingPosition).magnitude * unityUnitToMeter;
 
@@ -44,8 +46,10 @@ public class PlayerBungeeControl : MonoBehaviour {
         }
 	}
 
-    public void SetPlayerGuess (float _lengthOfCord)
+    public void SetPlayerGuess(float _lengthOfCord)
     {
         lengthOfCord = _lengthOfCord;
+
+        readyToJump = true;
     }
 }
