@@ -19,22 +19,16 @@ public class ScoreManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Calculates winner considering the worst score from each team
+    /// Calculates winner considering the worst score from each team for Balance option 1
     /// </summary>
     /// <returns>The teamNumber that won</returns>
     public int GetWinner_Balance1()
     {
-        List<Player> players = new List<Player>();
-        List<Team> teams = new List<Team>();
-
-        players = teamMan.players;
-        teams = teamMan.teams;
-
         float best = 0;
         int winner = -1;
 
         // Check the best score out of all teams
-        foreach (Team team in teams)
+        foreach (Team team in teamMan.teams)
         {
             float currentWorst = MAX_LENGTH;
 
@@ -62,6 +56,78 @@ public class ScoreManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Calculates winner considering the addition of all cord lengths from each team for Balance option 2
+    /// </summary>
+    /// <returns>The teamNumber that won</returns>
+    public int GetWinner_Balance2()
+    {
+        float best = 0;
+        int winner = -1;
+
+        // Check the best score out of all teams
+        foreach (Team team in teamMan.teams)
+        {
+            float currentSum = 0;
+
+            // Get the sum of scores of all players in the team
+            foreach (Player player in team.players)
+            {
+                currentSum += player.score;
+                if (currentSum >= MAX_LENGTH)
+                {
+                    currentSum = -1;
+                    break;
+                }
+            }
+
+            if (currentSum > best)
+            {
+                best = currentSum;
+                winner = team.teamNumber;
+            }
+        }
+
+        return winner;
+    }
+
+    /// <summary>
+    /// Calculates winner considering the average cord length from each team for Balance option 2
+    /// </summary>
+    /// <returns>The teamNumber that won</returns>
+    public int GetWinner_Balance3()
+    {
+        float best = 0;
+        int winner = -1;
+
+        // Check the best score out of all teams
+        foreach (Team team in teamMan.teams)
+        {
+            float currentSum = 0;
+
+            // Get the worst score from all players in the team
+            foreach (Player player in team.players)
+            {
+                currentSum += player.score;
+                if (currentSum >= MAX_LENGTH)
+                {
+                    currentSum = -1;
+                    break;
+                }
+            }
+
+            currentSum /= team.players.Count;
+
+            if (currentSum > best)
+            {
+                best = currentSum;
+                winner = team.teamNumber;
+            }
+        }
+
+        return winner;
+    }
+
+    /// <summary>
     /// DEBUG ONLY CODE!!!! 
     /// Updates the scores of the players using the SCORE_HACK list of floats
     /// </summary>
@@ -77,8 +143,26 @@ public class ScoreManager : MonoBehaviour
     /// DEBUG ONLY CODE!!!!
     /// Updates text on screen with the winner
     /// </summary>
-    public void FindWinner()
+    public void FindWinner_Balance1()
     {
         winnerText.text = "Winner: " + GetWinner_Balance1();
+    }
+
+    /// <summary>
+    /// DEBUG ONLY CODE!!!!
+    /// Updates text on screen with the winner
+    /// </summary>
+    public void FindWinner_Balance2()
+    {
+        winnerText.text = "Winner: " + GetWinner_Balance2();
+    }
+
+    /// <summary>
+    /// DEBUG ONLY CODE!!!!
+    /// Updates text on screen with the winner
+    /// </summary>
+    public void FindWinner_Balance3()
+    {
+        winnerText.text = "Winner: " + GetWinner_Balance3();
     }
 }
