@@ -86,9 +86,9 @@ public class PlayerController : MonoBehaviour {
             fillBarValue = MiniGameManager.Instance.MinCordLength;
         }
 
-        if (fillBarValue > MiniGameManager.Instance.MaxCordLength)
+        if (fillBarValue > MiniGameManager.Instance.totalCordLength)
         {
-            fillBarValue = MiniGameManager.Instance.MaxCordLength;
+            fillBarValue = MiniGameManager.Instance.totalCordLength;
         }
 
         //Debug.Log("My current score: "+ fillBarValue);

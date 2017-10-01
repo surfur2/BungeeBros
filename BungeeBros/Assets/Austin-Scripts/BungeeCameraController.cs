@@ -5,7 +5,6 @@ using UnityEngine;
 public class BungeeCameraController : MonoBehaviour
 {
     // Instance Variables
-    // public Camera mainCamera;
 
     public float upTileSpeed;
     public float downTileSpeed;
@@ -15,8 +14,8 @@ public class BungeeCameraController : MonoBehaviour
     public BungeeLevelGenerator levelGenerator;
 
     private float timer;
-    private int winnerIndex;
-    private int furthestIndex;
+    public int winnerIndex;
+    public int furthestIndex;
 
 
     // Use this for initialization
@@ -45,6 +44,14 @@ public class BungeeCameraController : MonoBehaviour
 
             case BungeeCameraStates.WaitAtTop:
                 WaitAtTop();
+                break;
+
+            case BungeeCameraStates.ChaseFurthest:
+                ChaseFurthest();
+                break;
+
+            case BungeeCameraStates.ChaseWinner:
+                ChaseWinner();
                 break;
 
             default:
@@ -129,9 +136,6 @@ public class BungeeCameraController : MonoBehaviour
     /// </summary>
     private void ChaseFurthest()
     {
-        winnerIndex = MiniGameManager.Instance.GetWinner_Balance1();
-        furthestIndex = MiniGameManager.Instance.GetMaxCordPlayer();
-
         Vector3 camPos = transform.position;
         camPos.y = MiniGameManager.Instance.Players[furthestIndex].gameObject.transform.position.y;
         transform.position = camPos;
@@ -145,16 +149,23 @@ public class BungeeCameraController : MonoBehaviour
 
     private void ChaseWinner()
     {
-        timer += Time.deltaTime;
+        if (winnerIndex >= 0)
+        {
+            timer += Time.deltaTime;
 
-        Vector3 newCamPos = Vec3SmoothLerp(
-            levelGenerator.WaterObject.transform.position, 
-            MiniGameManager.Instance.Players[winnerIndex].transform.position, 
-            timer, 
-            5);
+            Vector3 newCamPos = Vec3SmoothLerp(
+                levelGenerator.WaterObject.transform.position,
+                MiniGameManager.Instance.Players[winnerIndex].transform.position,
+                timer,
+                5);
 
-        newCamPos.z = Camera.main.gameObject.transform.position.z;
-        Camera.main.gameObject.transform.position = newCamPos;
+            newCamPos.z = Camera.main.gameObject.transform.position.z;
+            Camera.main.gameObject.transform.position = newCamPos;
+        }
+        else
+        {
+            currentCameraState = BungeeCameraStates.WaitAtBottom;
+        }
     }
 
     //Lerp from a point to another point (with SmootherStep)
