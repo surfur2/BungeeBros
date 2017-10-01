@@ -9,6 +9,7 @@ public class MiniGameManager : MonoBehaviour {
     public List<int> playerToTeam = new List<int>();
     public List<Sprite> playerArt = new List<Sprite>();
     public float RoundTimer = 10;
+    public float totalCordLength = 500;
 
     private static MiniGameManager _instance = null;
     private List<PlayerController> players = new List<PlayerController>();
@@ -41,7 +42,7 @@ public class MiniGameManager : MonoBehaviour {
         teamMan = GetComponent<TeamManager>();
         levelGen = GetComponent<BungeeLevelGenerator>();
 
-        maxCordLength = Random.Range(100, 500);
+        maxCordLength = Random.Range(100, totalCordLength);
         levelGen.InitLevel();
 
         MakePlayers(levelGen.PlayerStartLocations);
