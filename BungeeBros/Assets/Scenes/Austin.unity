@@ -180,6 +180,35 @@ Prefab:
       propertyPath: totalCordLength
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 114218940832067258, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: bridgePrefab
+      value: 
+      objectReference: {fileID: 1648760368391248, guid: 545061df5bb5a6447953397c9c1bad4a,
+        type: 2}
+    - target: {fileID: 114218940832067258, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: cliffPrefab
+      value: 
+      objectReference: {fileID: 1989031089737234, guid: 47ccfe3f9f643794688c483aed07be9b,
+        type: 2}
+    - target: {fileID: 114218940832067258, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: waterPrefab
+      value: 
+      objectReference: {fileID: 1365938815769180, guid: 09125d3e4fbafc843a3f7b173a8f87e0,
+        type: 2}
+    - target: {fileID: 114216068388152554, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: barHeightAbovePlayers
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114216068388152554, guid: 7d2e9e713b880124d966f58a298af2c3,
+        type: 2}
+      propertyPath: timerPrefab
+      value: 
+      objectReference: {fileID: 1612279578735766, guid: d95d863d3a7d88d48b71e53740f55d3f,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d2e9e713b880124d966f58a298af2c3, type: 2}
   m_IsPrefabParent: 0

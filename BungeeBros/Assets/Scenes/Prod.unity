@@ -220,16 +220,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerDivingArt.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerRestingArt.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4123731103167560, guid: 7d2e9e713b880124d966f58a298af2c3, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -262,78 +252,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: PlayerPrefab
-      value: 
-      objectReference: {fileID: 1653928490634510, guid: 292d7b8c91de2194f8b7ce80b29c2576,
-        type: 2}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerRestingArt.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: 973c90ee76138ce4c8b4ea2bdc614e73,
-        type: 3}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerRestingArt.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: f188f740089d35941aaa8c7b312e3e3a,
-        type: 3}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerRestingArt.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: d27d14eaae857c747a5117836d89c9cc,
-        type: 3}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerDivingArt.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: 2e4cf459f74bcd143b826078528e176e,
-        type: 3}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerDivingArt.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: 1b44360d904e3054ebd756e982c7fc91,
-        type: 3}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerDivingArt.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: dafe3c66f78dae14fa1879a66768a404,
-        type: 3}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerToTeam.Array.data[1]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114073345996398282, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: playerToTeam.Array.data[2]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114218940832067258, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: bridgePrefab
-      value: 
-      objectReference: {fileID: 1648760368391248, guid: 545061df5bb5a6447953397c9c1bad4a,
-        type: 2}
-    - target: {fileID: 114218940832067258, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: cliffPrefab
-      value: 
-      objectReference: {fileID: 1989031089737234, guid: 47ccfe3f9f643794688c483aed07be9b,
-        type: 2}
-    - target: {fileID: 114218940832067258, guid: 7d2e9e713b880124d966f58a298af2c3,
-        type: 2}
-      propertyPath: waterPrefab
-      value: 
-      objectReference: {fileID: 1365938815769180, guid: 09125d3e4fbafc843a3f7b173a8f87e0,
-        type: 2}
-    m_RemovedComponents:
-    - {fileID: 114641934612687634, guid: 7d2e9e713b880124d966f58a298af2c3, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d2e9e713b880124d966f58a298af2c3, type: 2}
   m_IsPrefabParent: 0
 --- !u!114 &351205297 stripped

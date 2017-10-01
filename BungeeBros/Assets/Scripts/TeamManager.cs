@@ -25,6 +25,9 @@ public class TeamManager : MonoBehaviour {
 
             // Add player to team
             teams[player.GetPlayerTeam() - 1].players.Add(player);
+
+            // Add the appropriate colored harness to the player
+            player.harnessSpriteRenderer.sprite = MiniGameManager.Instance.harnessTints[player.GetPlayerTeam() - 1];
         }
     }
 }
