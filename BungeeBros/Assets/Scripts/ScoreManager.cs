@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public float MAX_LENGTH = 10;
-    public List<float> SCORE_HACK = new List<float>();
-    public Text winnerText;
+    //public List<float> SCORE_HACK = new List<float>();
+    //public Text winnerText;
 
     TeamManager teamMan;
 
@@ -127,42 +127,42 @@ public class ScoreManager : MonoBehaviour
         return winner;
     }
 
-    /// <summary>
-    /// DEBUG ONLY CODE!!!! 
-    /// Updates the scores of the players using the SCORE_HACK list of floats
-    /// </summary>
-    public void UpdateScores()
-    {
-        for (int i = 0; i < SCORE_HACK.Count; i++)
-        {
-            MiniGameManager.Instance.Players[i].score = SCORE_HACK[i];
-        }
-    }
+    ///// <summary>
+    ///// DEBUG ONLY CODE!!!! 
+    ///// Updates the scores of the players using the SCORE_HACK list of floats
+    ///// </summary>
+    //public void UpdateScores()
+    //{
+    //    for (int i = 0; i < SCORE_HACK.Count; i++)
+    //    {
+    //        MiniGameManager.Instance.Players[i].score = SCORE_HACK[i];
+    //    }
+    //}
 
-    /// <summary>
-    /// DEBUG ONLY CODE!!!!
-    /// Updates text on screen with the winner
-    /// </summary>
-    public void FindWinner_Balance1()
-    {
-        winnerText.text = "Winner: " + GetWinner_Balance1();
-    }
+    ///// <summary>
+    ///// DEBUG ONLY CODE!!!!
+    ///// Updates text on screen with the winner
+    ///// </summary>
+    //public void FindWinner_Balance1()
+    //{
+    //    winnerText.text = "Winner: " + GetWinner_Balance1();
+    //}
 
-    /// <summary>
-    /// DEBUG ONLY CODE!!!!
-    /// Updates text on screen with the winner
-    /// </summary>
-    public void FindWinner_Balance2()
-    {
-        winnerText.text = "Winner: " + GetWinner_Balance2();
-    }
+    ///// <summary>
+    ///// DEBUG ONLY CODE!!!!
+    ///// Updates text on screen with the winner
+    ///// </summary>
+    //public void FindWinner_Balance2()
+    //{
+    //    winnerText.text = "Winner: " + GetWinner_Balance2();
+    //}
 
-    /// <summary>
-    /// DEBUG ONLY CODE!!!!
-    /// Updates text on screen with the winner
-    /// </summary>
-    public void FindWinner_Balance3()
-    {
-        winnerText.text = "Winner: " + GetWinner_Balance3();
-    }
+    ///// <summary>
+    ///// DEBUG ONLY CODE!!!!
+    ///// Updates text on screen with the winner
+    ///// </summary>
+    //public void FindWinner_Balance3()
+    //{
+    //    winnerText.text = "Winner: " + GetWinner_Balance3();
+    //}
 }

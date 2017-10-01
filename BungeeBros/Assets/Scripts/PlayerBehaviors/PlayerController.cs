@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-
-    public float score;
-
+    
     private int playerNumber;
     private int playerTeam;
+    private float fillBarValue;
 
     private bool playerJumped;
 
     // My subobjects
     private PlayerBungeeControl myBungeeController;
     private Jump myJumpController;
+
+
+    public float FillBarValue { get { return fillBarValue; } }
+
 
     private void Start()
     {
@@ -27,7 +30,7 @@ public class PlayerController : MonoBehaviour {
     {   
         if(Input.GetKeyDown("space"))
         {
-            myBungeeController.SetPlayerGuess(score);
+            myBungeeController.SetPlayerGuess(fillBarValue);
             JumpPlayer();
         }
     }
@@ -48,11 +51,6 @@ public class PlayerController : MonoBehaviour {
         return playerTeam;
     }
 
-    public float GetPlayerScore()
-    {
-        return score;
-    }
-
     public bool HasPlayerJumped()
     {
         return playerJumped;
@@ -60,16 +58,16 @@ public class PlayerController : MonoBehaviour {
 
     public void AddValueToScore (float value)
     {
-        score += value;
+        fillBarValue += value;
 
-        if (score < MiniGameManager.Instance.MinCordLength)
+        if (fillBarValue < MiniGameManager.Instance.MinCordLength)
         {
-            score = MiniGameManager.Instance.MinCordLength;
+            fillBarValue = MiniGameManager.Instance.MinCordLength;
         }
 
-        if (score > MiniGameManager.Instance.MaxCordLength)
+        if (fillBarValue > MiniGameManager.Instance.MaxCordLength)
         {
-            score = MiniGameManager.Instance.MaxCordLength;
+            fillBarValue = MiniGameManager.Instance.MaxCordLength;
         }
     }
 
@@ -77,5 +75,15 @@ public class PlayerController : MonoBehaviour {
     {
         myJumpController.PlayerJump();
         playerJumped = true;
+    }
+
+    public void SetCordLength(float cordLen)
+    {
+        myBungeeController.SetPlayerGuess(cordLen);
+    }
+
+    public float GetCordLength()
+    {
+        return myBungeeController.LengthOfCord;
     }
 }

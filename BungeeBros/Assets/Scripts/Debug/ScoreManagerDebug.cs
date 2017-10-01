@@ -14,7 +14,7 @@ public class ScoreManagerDebug : Editor {
         
         if (GUILayout.Button("UpdateScores"))
         {
-            scoreMan.UpdateScores();
+            //scoreMan.UpdateScores();
         }
     }
 }

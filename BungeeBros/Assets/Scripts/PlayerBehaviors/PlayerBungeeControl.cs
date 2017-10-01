@@ -17,6 +17,8 @@ public class PlayerBungeeControl : MonoBehaviour {
 
     private Rigidbody2D myRigidBody;
 
+    public float LengthOfCord { get { return lengthOfCord; } }
+
 	// Use this for initialization
 	void Start () {
         myRigidBody = gameObject.GetComponent<Rigidbody2D>();

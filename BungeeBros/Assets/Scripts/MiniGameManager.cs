@@ -55,7 +55,13 @@ public class MiniGameManager : MonoBehaviour {
 	void Update () {
 		if (Time.time - startTime >= RoundTimer && !jumped)
         {
-            foreach(PlayerController player in players)
+            // Calculate winner
+            int winner = GetWinner_Balance1();
+            int maxCordPlayer = GetMaxCordPlayer();
+
+
+            // Make players jump
+            foreach (PlayerController player in players)
             {
                 player.JumpPlayer();
             }
@@ -94,5 +100,170 @@ public class MiniGameManager : MonoBehaviour {
             players.Add(player);
             playerNumber++;
         }
+    }
+
+    /// <summary>
+    /// Calculates winner considering the worst score from each team for Balance option 1
+    /// </summary>
+    /// <returns>The teamNumber that won</returns>
+    public int GetWinner_Balance1()
+    {
+        float best = 0;
+        int winner = -1;
+
+        // Check the best score out of all teams
+        foreach (Team team in teamMan.Teams)
+        {
+            float currentWorst = maxCordLength;
+            int currentWorstPlayer = 0;
+
+            // Get the worst score from all players in the team
+            foreach (PlayerController player in team.players)
+            {
+                if (player.FillBarValue >= maxCordLength)
+                {
+                    currentWorst = -1;
+                    currentWorstPlayer = player.GetPlayerNumber();
+                    break;
+                }
+
+                if (player.FillBarValue < currentWorst)
+                {
+                    currentWorst = player.FillBarValue;
+                    currentWorstPlayer = player.GetPlayerNumber();
+                }
+
+                // Set the cord length for each player separately
+                player.SetCordLength(player.FillBarValue);
+            }
+
+            if (currentWorst > best)
+            {
+                best = currentWorst;
+                winner = currentWorstPlayer;
+            }
+        }
+
+        return winner;
+    }
+
+    /// <summary>
+    /// Calculates winner considering the addition of all cord lengths from each team for Balance option 2
+    /// </summary>
+    /// <returns>One player at random from the winning team</returns>
+    public int GetWinner_Balance2()
+    {
+        float best = 0;
+        int winner = -1;
+
+        // Check the best score out of all teams
+        foreach (Team team in teamMan.Teams)
+        {
+            float currentSum = 0;
+
+            // Get the sum of scores of all players in the team
+            foreach (PlayerController player in team.players)
+            {
+                currentSum += player.FillBarValue;
+                if (currentSum >= maxCordLength)
+                {
+                    currentSum = -1;
+                    break;
+                }
+            }
+
+            if (currentSum > best)
+            {
+                best = currentSum;
+                winner = team.players[Random.Range(0, team.players.Count - 1)].GetPlayerNumber();
+            }
+
+            // Set the cord length for all players in the same team
+            float len = 0;
+            if (currentSum == -1)
+                len = maxCordLength;
+            else
+                len = currentSum;
+
+            foreach (PlayerController player in team.players)
+            {
+                player.SetCordLength(len);
+            }
+        }
+
+        return winner;
+    }
+
+    /// <summary>
+    /// Calculates winner considering the average cord length from each team for Balance option 2
+    /// </summary>
+    /// <returns>One player at random form the winning team</returns>
+    public int GetWinner_Balance3()
+    {
+        float best = 0;
+        int winner = -1;
+
+        // Check the best score out of all teams
+        foreach (Team team in teamMan.Teams)
+        {
+            float currentSum = 0;
+
+            // Get the worst score from all players in the team
+            foreach (PlayerController player in team.players)
+            {
+                currentSum += player.FillBarValue;
+                if (currentSum >= maxCordLength)
+                {
+                    currentSum = -1;
+                    break;
+                }
+            }
+
+            currentSum /= team.players.Count;
+
+            if (currentSum > best)
+            {
+                best = currentSum;
+                winner = team.players[Random.Range(0, team.players.Count - 1)].GetPlayerNumber();
+            }
+
+            // Set the cord length for all players in the same team
+            float len = 0;
+            if (currentSum == -1)
+                len = maxCordLength;
+            else
+                len = currentSum;
+
+            foreach (PlayerController player in team.players)
+            {
+                player.SetCordLength(len);
+            }
+        }
+
+        return winner;
+    }
+
+    // Get player with the maximum cord length
+    int GetMaxCordPlayer()
+    {
+        float currentMaxCord = 0;
+        int currentMaxPlayer = 1;
+
+        int playerIterator = 1;
+        foreach(PlayerController player in players)
+        {
+            if (player.GetCordLength() >= maxCordLength)
+                return currentMaxPlayer;
+
+            if (player.GetCordLength() > currentMaxCord)
+            {
+                currentMaxCord = player.GetCordLength();
+                currentMaxPlayer = playerIterator;
+            }
+
+            playerIterator++;
+        }
+
+        return currentMaxPlayer;
     }
 }
