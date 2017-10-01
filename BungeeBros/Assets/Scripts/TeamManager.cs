@@ -28,6 +28,9 @@ public class TeamManager : MonoBehaviour {
 
             // Add the appropriate colored harness to the player
             player.harnessSpriteRenderer.sprite = MiniGameManager.Instance.frontHarnessTints[player.GetPlayerTeam() - 1];
+
+            // Add the colored rope material
+            player.gameObject.GetComponentInChildren<LineRenderer>(true).sharedMaterial = MiniGameManager.Instance.ropeMaterials[player.GetPlayerTeam() - 1];
         }
     }
 }

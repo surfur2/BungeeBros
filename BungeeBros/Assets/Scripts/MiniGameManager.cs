@@ -12,6 +12,7 @@ public class MiniGameManager : MonoBehaviour
     public List<Sprite> playerDivingArt = new List<Sprite>();
     public List<Sprite> frontHarnessTints = new List<Sprite>();
     public List<Sprite> backHarnessTints = new List<Sprite>();
+    public List<Material> ropeMaterials = new List<Material>();
     public float RoundTimer = 10;
     public float totalCordLength = 150;
 
