@@ -26,15 +26,15 @@ public class BungeeUIManager : MonoBehaviour
 
     public void Init(Vector3[] playerStartPositions)
     {
+        bungeeBars = new BungeeBarUI[playerStartPositions.Length];
         UIContainer = new GameObject("UI Container");
 
         for(int i = 0; i < playerStartPositions.Length; i++)
         {
             GameObject uiBar = Instantiate(bungeeBarPrefab);
 
-            Vector3 transformPosition = uiBar.transform.position;
+            Vector3 transformPosition = playerStartPositions[i];
             transformPosition.y += barHeightAbovePlayers;
-            transformPosition.z = Camera.main.transform.position.z + 1;
             uiBar.transform.position = transformPosition;
 
             uiBar.transform.parent = UIContainer.transform;
