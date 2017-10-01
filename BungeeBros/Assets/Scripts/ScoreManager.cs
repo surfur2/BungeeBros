@@ -135,7 +135,7 @@ public class ScoreManager : MonoBehaviour
     {
         for (int i = 0; i < SCORE_HACK.Count; i++)
         {
-            //MiniGameManager.Instance.AddToPlayerScore(i + 1, SCORE_HACK[i]);
+            MiniGameManager.Instance.Players[i].score = SCORE_HACK[i];
         }
     }
 
