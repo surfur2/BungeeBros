@@ -6,7 +6,7 @@ public class RopeControl : MonoBehaviour {
 
     public float maxRopeDistance;
 
-    private SpringJoint2D
+    //private SpringJoint2D
 	// Use this for initialization
 	void Start () {
 		
