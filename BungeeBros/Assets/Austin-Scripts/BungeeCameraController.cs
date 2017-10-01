@@ -144,7 +144,7 @@ public class BungeeCameraController : MonoBehaviour
     /// </summary>
     private void ChaseFurthest()
     {
-        winnerIndex = MiniGameManager.Instance.GetWinner_Balance1();
+        winnerIndex = MiniGameManager.Instance.Winner;
         furthestIndex = MiniGameManager.Instance.GetMaxCordPlayer();
 
         Vector3 camPos = transform.position;

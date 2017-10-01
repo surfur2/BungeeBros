@@ -27,12 +27,14 @@ public class MiniGameManager : MonoBehaviour
     private float startTime;
     private bool jumped = false;
     private float countdownTimer;
+    private int winner = -1;
 
     public static MiniGameManager Instance { get { return _instance; } }
     public List<PlayerController> Players { get { return players; } }
     public float MinCordLength { get { return minCordLength; } }
     public float MaxCordLength { get { return maxCordLength; } }
     public float CountdownTimer { get { return countdownTimer; } }
+    public int Winner { get { return winner; } }
 
     private void Awake()
     {
@@ -71,6 +73,8 @@ public class MiniGameManager : MonoBehaviour
         countdownTimer = Time.time - startTime;
         if (countdownTimer >= RoundTimer && !jumped)
         {
+            winner = GetWinner_Balance1();
+
             // Tell camera to begin chasing the furthest jumper.
             camControl.currentCameraState = BungeeCameraStates.ChaseFurthest;
 
