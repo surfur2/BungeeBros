@@ -30,8 +30,6 @@ public class PlayerBungeeControl : MonoBehaviour {
         {
             float currentFallDistance = (gameObject.transform.position - playerStartingPosition).magnitude * unityUnitToMeter;
 
-            Debug.Log("Current bungee length: " + myRigidBody.velocity.magnitude);
-
             if (Mathf.Abs(currentFallDistance - lengthOfCord) < errorForFall && myRigidBody.velocity.magnitude < velocityError)
             {
                 myRigidBody.velocity = new Vector2(0.0f, 0.0f);
