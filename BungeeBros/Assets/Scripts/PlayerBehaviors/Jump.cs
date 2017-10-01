@@ -20,7 +20,6 @@ public class Jump : MonoBehaviour {
         Vector2 velocityUpdate = new Vector2(0.0f, 0.0f);
 
         velocityUpdate.y = jumpspeed;
-
         myRigidbody2D.velocity += velocityUpdate;
         myBoxCollider2D.isTrigger = true;
     }

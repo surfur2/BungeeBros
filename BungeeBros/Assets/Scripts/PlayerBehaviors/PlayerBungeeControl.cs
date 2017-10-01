@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerBungeeControl : MonoBehaviour {
 
     public float unityUnitToMeter = 20.0f;
-    public float lengthOfCord;
 
+    private float lengthOfCord;
     private Vector3 playerStartingPosition;
     private bool reachedRestingLocation;
     private bool readyToJump;
@@ -19,8 +19,6 @@ public class PlayerBungeeControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        SetPlayerGuess(lengthOfCord);
-        playerStartingPosition = gameObject.transform.position;
         myRigidBody = gameObject.GetComponent<Rigidbody2D>();
         reachedRestingLocation = false;
         readyToJump = false;
@@ -49,7 +47,7 @@ public class PlayerBungeeControl : MonoBehaviour {
     public void SetPlayerGuess(float _lengthOfCord)
     {
         lengthOfCord = _lengthOfCord;
-
         readyToJump = true;
+        playerStartingPosition = gameObject.transform.position;
     }
 }
