@@ -27,14 +27,14 @@ public class MiniGameManager : MonoBehaviour {
 
     private void Awake()
     {
-        // Singleton initialization
-        if (_instance != this)
+        if (_instance == null)
         {
-            Destroy(gameObject);
-            return;
+            _instance = this;
         }
-
-        _instance = this;
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     // Use this for initialization

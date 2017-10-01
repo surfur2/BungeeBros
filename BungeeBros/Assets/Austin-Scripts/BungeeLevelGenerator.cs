@@ -47,7 +47,7 @@ public class BungeeLevelGenerator : MonoBehaviour
     public void InitLevel()
     {
         GenerateNewLevel(levelHeight);
-        playerStartLocations = new Vector3[MiniGameManager.Instance.Players.Count];
+        playerStartLocations = new Vector3[MiniGameManager.Instance.playerToTeam.Count];
         SetupPlayerLanes();
     }
 

@@ -6,7 +6,7 @@ public class BungeeUIManager : MonoBehaviour
 {
     public GameObject bungeeBarPrefab;
     public float barHeightAbovePlayers;
-    public GameObject UIContainer;
+    private GameObject UIContainer;
 
     private BungeeBarUI[] bungeeBars;
 

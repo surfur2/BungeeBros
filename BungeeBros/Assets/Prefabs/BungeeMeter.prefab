@@ -151,7 +151,7 @@ Transform:
   m_GameObject: {fileID: 1111783361033160}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.8576329, y: 1.0760088, z: -5.71}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.9301717, y: 1.9301714, z: 1.9301714}
   m_Children:
   - {fileID: 4739702267501418}
   - {fileID: 4062523707918526}
@@ -170,8 +170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc12c9ff5ebe41a4486a759c7d3f92b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emptyBarBungeeDistance: 0
-  fullBarBungeeDistance: 5
 --- !u!212 &212132444663232400
 SpriteRenderer:
   m_ObjectHideFlags: 1
