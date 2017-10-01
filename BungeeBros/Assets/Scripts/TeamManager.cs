@@ -7,15 +7,16 @@ public class TeamManager : MonoBehaviour {
 
     public List<int> playerToTeam = new List<int>();
     public List<Player> players = new List<Player>();
+    public List<Sprite> playerArt = new List<Sprite>();
     public List<Team> teams = new List<Team>();
 
 	// Use this for initialization
 	void Start ()
     {
         int playerNumber = 1;
-        foreach (int teamNumber in playerToTeam)
+        for (int i = 0; i < playerToTeam.Count; i++)
         {
-            players.Add(new Player(playerNumber, teamNumber));
+            players.Add(new Player(playerNumber, playerToTeam[i], playerArt[i]));
             playerNumber++;
         }
 
