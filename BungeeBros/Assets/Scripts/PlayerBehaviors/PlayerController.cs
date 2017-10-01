@@ -8,8 +8,14 @@ public class PlayerController : MonoBehaviour {
 
     private int playerNumber;
     private int playerTeam;
-    public Sprite restingSprite;
-    public Sprite divingSprite;
+    [SerializeField]
+    private Sprite restingSprite;
+    [SerializeField]
+    private Sprite divingSprite;
+
+    public Sprite forwardHarness;
+    public Sprite backHarness;
+    public SpriteRenderer harnessSpriteRenderer;
 
     private bool playerJumped;
 
@@ -18,16 +24,16 @@ public class PlayerController : MonoBehaviour {
     private Jump myJumpController;
 
     // My components
-    private SpriteRenderer mySpriteRenderer;
+    private SpriteRenderer playerSpriteRenderer;
 
-    private void Start()
+    private void Awake()
     {
         playerJumped = false;
 
         myBungeeController = GetComponent<PlayerBungeeControl>();
         myJumpController = GetComponent<Jump>();
 
-        mySpriteRenderer = GetComponent<SpriteRenderer>();
+        playerSpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -49,7 +55,8 @@ public class PlayerController : MonoBehaviour {
         restingSprite = _restingSprite;
         divingSprite = _divingSprite;
 
-        mySpriteRenderer.sprite = restingSprite;
+        playerSpriteRenderer.sprite = restingSprite;
+        harnessSpriteRenderer.sprite = forwardHarness;
     }
 
     public int GetPlayerNumber()
@@ -93,6 +100,13 @@ public class PlayerController : MonoBehaviour {
     {
         myJumpController.PlayerJump();
         playerJumped = true;
-        mySpriteRenderer.sprite = divingSprite;
+        
+        // Change the sprites for the player when they dive
+        playerSpriteRenderer.sprite = divingSprite;
+        harnessSpriteRenderer.sprite = backHarness;
+
+        //Offset to make the harness line up with the dive sprite
+        // TODO: this is shit and needs to not be a magic number
+        harnessSpriteRenderer.transform.localPosition = new Vector3( 0.22f, -1.57f, harnessSpriteRenderer.transform.position.z);
     }
 }
