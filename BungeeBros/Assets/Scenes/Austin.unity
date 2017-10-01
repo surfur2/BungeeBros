@@ -108,70 +108,54 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &549055645
-GameObject:
+--- !u!1001 &13700919
+Prefab:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 549055647}
-  - component: {fileID: 549055646}
-  - component: {fileID: 549055648}
-  m_Layer: 0
-  m_Name: LevelGenerator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &549055646
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4123731103167560, guid: 7d2e9e713b880124d966f58a298af2c3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123731103167560, guid: 7d2e9e713b880124d966f58a298af2c3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123731103167560, guid: 7d2e9e713b880124d966f58a298af2c3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123731103167560, guid: 7d2e9e713b880124d966f58a298af2c3, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123731103167560, guid: 7d2e9e713b880124d966f58a298af2c3, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123731103167560, guid: 7d2e9e713b880124d966f58a298af2c3, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123731103167560, guid: 7d2e9e713b880124d966f58a298af2c3, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123731103167560, guid: 7d2e9e713b880124d966f58a298af2c3, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 7d2e9e713b880124d966f58a298af2c3, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &1337400735 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 549055645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
+  m_PrefabParentObject: {fileID: 114218940832067258, guid: 7d2e9e713b880124d966f58a298af2c3,
+    type: 2}
+  m_PrefabInternal: {fileID: 13700919}
   m_Script: {fileID: 11500000, guid: f9c78f44cb53dc74792dde0c0afe5b61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bridgeArt: {fileID: 21300000, guid: dee8dcc7cba91c14b8956b2c69839e82, type: 3}
-  cliffArt: {fileID: 21300000, guid: 10e3d50ed4b583b49a455cfd852954ba, type: 3}
-  waterArt: {fileID: 21300000, guid: 0928c62eab3f9464382d9d5209e58bb2, type: 3}
-  levelHeight: 10
-  bridgeYLocation: -1.26
-  teamMan: {fileID: 549055648}
---- !u!4 &549055647
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 549055645}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &549055648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 549055645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db607e316a471c145913c1c1f1b67b2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerToTeam: 01000000010000000100000001000000
-  playerArt:
-  - {fileID: 21300000, guid: 236890cf998082f45ad345a224da6c0f, type: 3}
-  - {fileID: 21300000, guid: 236890cf998082f45ad345a224da6c0f, type: 3}
-  - {fileID: 21300000, guid: 236890cf998082f45ad345a224da6c0f, type: 3}
-  - {fileID: 21300000, guid: 236890cf998082f45ad345a224da6c0f, type: 3}
 --- !u!1 &1668977381
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +260,7 @@ MonoBehaviour:
   upTileSpeed: 1
   downTileSpeed: 0.3
   currentCameraState: 0
-  levelGenerator: {fileID: 549055646}
+  levelGenerator: {fileID: 1337400735}
 --- !u!1001 &1775473047
 Prefab:
   m_ObjectHideFlags: 0
@@ -314,50 +298,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4880015489491470, guid: 034fe4240f811aa41ac31e49b82f166c, type: 2}
       propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4345132008153262, guid: 034fe4240f811aa41ac31e49b82f166c, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 2.857
-      objectReference: {fileID: 0}
-    - target: {fileID: 4830027669845986, guid: 034fe4240f811aa41ac31e49b82f166c, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 1.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 4062523707918526, guid: 034fe4240f811aa41ac31e49b82f166c, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.085
-      objectReference: {fileID: 0}
-    - target: {fileID: 4880015489491470, guid: 034fe4240f811aa41ac31e49b82f166c, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.9301717
-      objectReference: {fileID: 0}
-    - target: {fileID: 4880015489491470, guid: 034fe4240f811aa41ac31e49b82f166c, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.9301714
-      objectReference: {fileID: 0}
-    - target: {fileID: 4880015489491470, guid: 034fe4240f811aa41ac31e49b82f166c, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.9301714
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 034fe4240f811aa41ac31e49b82f166c, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1775473048 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1111783361033160, guid: 034fe4240f811aa41ac31e49b82f166c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1775473047}
---- !u!114 &1775473049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1775473048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc12c9ff5ebe41a4486a759c7d3f92b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  emptyBarBungeeDistance: 0
-  fullBarBungeeDistance: 5
