@@ -6,41 +6,41 @@ using UnityEngine;
 
 namespace GameUtilities
 {
-    public class Player
-    {
-        public int playerNumber;
-        public float score;
-        public int teamNumber;
-        public Sprite playerCharacterSprite;
+    //public class Player
+    //{
+    //    public int playerNumber;
+    //    public float score;
+    //    public int teamNumber;
+    //    public Sprite playerCharacterSprite;
 
-        public Player()
-        {
-            playerNumber = 1;
-            teamNumber = 1;
-        }
+    //    public Player()
+    //    {
+    //        playerNumber = 1;
+    //        teamNumber = 1;
+    //    }
 
-        public Player(int playerNum, int teamNum, Sprite playerSprite)
-        {
-            playerNumber = playerNum;
-            teamNumber = teamNum;
-            playerCharacterSprite = playerSprite;
-        }
-    }
+    //    public Player(int playerNum, int teamNum, Sprite playerSprite)
+    //    {
+    //        playerNumber = playerNum;
+    //        teamNumber = teamNum;
+    //        playerCharacterSprite = playerSprite;
+    //    }
+    //}
 
     public class Team
     {
-        public List<Player> players;
+        public List<PlayerController> players;
         public int teamNumber;
 
         public Team()
         {
-            players = new List<Player>();
+            players = new List<PlayerController>();
             teamNumber = 0;
         }
 
         public Team(int team)
         {
-            players = new List<Player>();
+            players = new List<PlayerController>();
             teamNumber = team;
         }
     }
