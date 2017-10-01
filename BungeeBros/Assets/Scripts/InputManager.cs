@@ -25,7 +25,7 @@ public class InputManager : MonoBehaviour {
         if (devMode)
             playerNumber = 1;
 
-        return Input.GetAxis("P" + playerNumber +"_Horizontal");
+        return Input.GetAxis("Horizontal_P" + playerNumber);
     }
 
     public bool GetButtonDownForPlayer (int playerNumber, string button)
@@ -33,7 +33,7 @@ public class InputManager : MonoBehaviour {
         if (devMode)
             playerNumber = 1;
 
-        return Input.GetButtonDown("P" + playerNumber + "_" + button);
+        return Input.GetButtonDown(button + "_P" + playerNumber);
     }
 
     public bool GetButtonUpForPlayer(int playerNumber, string button)
@@ -41,6 +41,6 @@ public class InputManager : MonoBehaviour {
         if (devMode)
             playerNumber = 1;
 
-        return Input.GetButtonUp("P" + playerNumber + "_" + button);
+        return Input.GetButtonUp(button + "_P" + playerNumber);
     }
 }
