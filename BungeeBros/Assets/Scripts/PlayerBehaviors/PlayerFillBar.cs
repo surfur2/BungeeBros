@@ -18,7 +18,8 @@ public class PlayerFillBar : MonoBehaviour {
     void Update () {
         if (!playerController.HasPlayerJumped())
         {
-            if (InputManager.instance.GetButtonDownForPlayer(playerController.GetPlayerNumber(), "A"))
+            // Register when the button is held to increase amount of cord
+            if (InputManager.instance.GetButtonForPlayer(playerController.GetPlayerNumber(), "A"))
             {
                 playerController.AddValueToScore(Time.deltaTime * fillSpeed);
             }
@@ -26,6 +27,16 @@ public class PlayerFillBar : MonoBehaviour {
             {
                 playerController.AddValueToScore(-(Time.deltaTime * reductionSpeed));
             }
+
+            // Register when the button is tapped to increase the amount of cord.
+            /*if (InputManager.instance.GetButtonDownForPlayer(playerController.GetPlayerNumber(), "A"))
+            {
+                playerController.AddValueToScore(fillSpeed);
+            }
+            else
+            {
+                playerController.AddValueToScore(-(Time.deltaTime * reductionSpeed));
+            }*/
         }
     }
 }
