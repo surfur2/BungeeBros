@@ -6,7 +6,7 @@ public class InputManager : MonoBehaviour {
 
     public static InputManager instance = null;
 
-    private bool isDevMode = true;
+    private bool isDevMode = false;
 
 	// Use this for initialization
 	void Awake () {

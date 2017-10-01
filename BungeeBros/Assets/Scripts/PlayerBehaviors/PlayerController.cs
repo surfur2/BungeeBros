@@ -40,15 +40,6 @@ public class PlayerController : MonoBehaviour {
         myRigidBody = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
-    {   
-        if(Input.GetKeyDown("space") && !playerJumped)
-        {
-            myBungeeController.SetPlayerGuess(fillBarValue);
-            JumpPlayer();
-        }
-    }
-
     public void InitPlayer(int _playerNumber, int _playerTeam, Sprite _restingSprite, Sprite _divingSprite)
     {
         playerSpriteRenderer = GetComponent<SpriteRenderer>();
@@ -86,9 +77,9 @@ public class PlayerController : MonoBehaviour {
             fillBarValue = MiniGameManager.Instance.MinCordLength;
         }
 
-        if (fillBarValue > MiniGameManager.Instance.MaxCordLength)
+        if (fillBarValue > MiniGameManager.Instance.totalCordLength)
         {
-            fillBarValue = MiniGameManager.Instance.MaxCordLength;
+            fillBarValue = MiniGameManager.Instance.totalCordLength;
         }
 
         //Debug.Log("My current score: "+ fillBarValue);
