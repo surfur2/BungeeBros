@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BungeeCameraController : MonoBehaviour
 {
@@ -14,16 +15,22 @@ public class BungeeCameraController : MonoBehaviour
 
     public BungeeLevelGenerator levelGenerator;
 
+    public Text winnerDisplayText;
+
     private float timer;
     private int winnerIndex;
     private int furthestIndex;
 
-
+    private const float errorToWinner = 0.2f;
+    private const float timeToShowWinnerText = 1.5f;
+    
     // Use this for initialization
     void Start()
     {
         upTileSpeed = upTileSpeed <= 0 ? 1 : upTileSpeed;
         downTileSpeed = downTileSpeed <= 0 ? 1 : downTileSpeed;
+
+        winnerDisplayText.enabled = false;
     }
 
     // Update is called once per frame
@@ -144,9 +151,18 @@ public class BungeeCameraController : MonoBehaviour
         camPos.y = MiniGameManager.Instance.Players[furthestIndex].gameObject.transform.position.y;
         transform.position = camPos;
 
-        if(camPos.y <= levelGenerator.WaterObject.transform.position.y)
+        if (winnerIndex == -1)
+        {
+            currentCameraState = BungeeCameraStates.WaitAtBottom;
+            winnerDisplayText.text = "Draw!";
+            winnerDisplayText.color = Color.yellow;
+            StartCoroutine("TurnOnTextAfterSeconds", timeToShowWinnerText);
+        }
+        else if(camPos.y <= levelGenerator.WaterObject.transform.position.y)
         {
             currentCameraState = BungeeCameraStates.ChaseWinner;
+            winnerDisplayText.text = "Winner!";
+            winnerDisplayText.color = Color.green;
             timer = 0;
         }
     }
@@ -163,6 +179,11 @@ public class BungeeCameraController : MonoBehaviour
 
         newCamPos.z = Camera.main.gameObject.transform.position.z;
         Camera.main.gameObject.transform.position = newCamPos;
+
+        if ((Camera.main.gameObject.transform.position - newCamPos).magnitude < errorToWinner)
+        {
+            StartCoroutine("TurnOnTextAfterSeconds", timeToShowWinnerText);
+        }
     }
 
     //Lerp from a point to another point (with SmootherStep)
@@ -182,6 +203,13 @@ public class BungeeCameraController : MonoBehaviour
     private float Smootherstep(float t)
     {
         return t * t * t * (t * (6f * t - 15f) + 10f);
+    }
+
+    private IEnumerator TurnOnTextAfterSeconds (float turnOnAfter)
+    {
+        yield return new WaitForSeconds(turnOnAfter);
+
+        winnerDisplayText.enabled = true;
     }
 
     #endregion
