@@ -22,11 +22,13 @@ public class MiniGameManager : MonoBehaviour
     private float maxCordLength = 90;
     private float startTime;
     private bool jumped = false;
+    private float countdownTimer;
 
     public static MiniGameManager Instance { get { return _instance; } }
     public List<PlayerController> Players { get { return players; } }
     public float MinCordLength { get { return minCordLength; } }
     public float MaxCordLength { get { return maxCordLength; } }
+    public float CountdownTimer { get { return countdownTimer; } }
 
     private void Awake()
     {
@@ -61,7 +63,8 @@ public class MiniGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - startTime >= RoundTimer && !jumped)
+        countdownTimer = Time.time - startTime;
+        if (countdownTimer >= RoundTimer && !jumped)
         {
             // Calculate winner
             int winner = GetWinner_Balance1();
