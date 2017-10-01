@@ -6,8 +6,6 @@ public class InputManager : MonoBehaviour {
 
     public static InputManager instance;
 
-    public bool devMode;
-
 	// Use this for initialization
 	void Start () {
 		if (instance == null)
@@ -20,27 +18,13 @@ public class InputManager : MonoBehaviour {
         }
 	}
 
-    public float GetHorizontalForPlayer (int playerNumber)
-    {
-        if (devMode)
-            playerNumber = 1;
-
-        return Input.GetAxis("Horizontal_P" + playerNumber);
-    }
-
     public bool GetButtonDownForPlayer (int playerNumber, string button)
     {
-        if (devMode)
-            playerNumber = 1;
-
-        return Input.GetButtonDown(button + "_P" + playerNumber);
+        return Input.GetButtonDown(button + "_P"+ playerNumber);
     }
 
     public bool GetButtonUpForPlayer(int playerNumber, string button)
     {
-        if (devMode)
-            playerNumber = 1;
-
         return Input.GetButtonUp(button + "_P" + playerNumber);
     }
 }
