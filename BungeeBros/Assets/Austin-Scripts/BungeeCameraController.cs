@@ -47,6 +47,14 @@ public class BungeeCameraController : MonoBehaviour
                 WaitAtTop();
                 break;
 
+            case BungeeCameraStates.ChaseFurthest:
+                ChaseFurthest();
+                break;
+
+            case BungeeCameraStates.ChaseWinner:
+                ChaseWinner();
+                break;
+
             default:
                 break;
         }
