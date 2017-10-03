@@ -12,7 +12,7 @@ public class PlayerBungeeControl : MonoBehaviour {
     private const float bungeeThreshhold = 0.2f;
     private const float errorForFall = 0.2f;
     private const float velocityError = 0.87f;
-    private const float counterGravityForce = 25.0f;
+    private const float counterGravityForce = 30.0f;
 
     private Rigidbody2D myRigidBody;
 
@@ -39,7 +39,7 @@ public class PlayerBungeeControl : MonoBehaviour {
             }
             else if (currentFallDistance >= lengthOfCord)
             {
-                Vector2 newVelocity = new Vector2(myRigidBody.velocity.x, myRigidBody.velocity.y + (counterGravityForce * Time.deltaTime));
+                Vector2 newVelocity = new Vector2(myRigidBody.velocity.x, myRigidBody.velocity.y + (counterGravityForce * myRigidBody.gravityScale * Time.deltaTime));
                 myRigidBody.velocity = newVelocity;
             }
         }
