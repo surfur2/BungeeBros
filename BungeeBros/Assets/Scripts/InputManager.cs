@@ -6,7 +6,7 @@ public class InputManager : MonoBehaviour {
 
     public static InputManager instance = null;
 
-    private bool isDevMode = false;
+    private bool isDevMode = true;
 
 	// Use this for initialization
 	void Awake () {
@@ -24,7 +24,7 @@ public class InputManager : MonoBehaviour {
     public bool GetButtonDownForPlayer (int playerNumber, string button)
     {
         if (isDevMode)
-            return Input.GetKeyDown("a");
+            return DevModeButtonDown(playerNumber);
 
         return Input.GetButtonDown(button + "_P"+ playerNumber);
     }
@@ -39,10 +39,44 @@ public class InputManager : MonoBehaviour {
     public bool GetButtonForPlayer(int playerNumber, string button)
     {
         if (isDevMode)
-            return Input.GetKey("a");
+            return DevModeButtonState(playerNumber);
 
         return Input.GetButton(button + "_P" + playerNumber);
     }
 
-    
+
+    private bool DevModeButtonDown(int playerNumber)
+    {
+        switch (playerNumber)
+        {
+            case 1:
+                return Input.GetKeyDown("a");
+            case 2:
+                return Input.GetKeyDown("s");
+            case 3:
+                return Input.GetKeyDown("k");
+            case 4:
+                return Input.GetKeyDown("l");
+            default:
+                return Input.GetKeyDown("a");
+        }
+    }
+
+    private bool DevModeButtonState (int playerNumber)
+    {
+        switch (playerNumber)
+        {
+            case 1:
+                return Input.GetKey("a");
+            case 2:
+                return Input.GetKey("s");
+            case 3:
+                return Input.GetKey("k");
+            case 4:
+                return Input.GetKey("l");
+            default:
+                return Input.GetKey("a");
+        }
+    }
+
 }

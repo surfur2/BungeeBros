@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerFillBar : MonoBehaviour {
 
-    public float fillSpeedPercent;
-    public float reductionSpeedPercent;
+    public float fillSpeedPercentHold;
+    public float reductionSpeedPercentHold;
+    public float fillSpeedPercentSpam;
+    public float reductionSpeedPercentSpam;
 
     private PlayerController playerController;
 
@@ -19,24 +21,24 @@ public class PlayerFillBar : MonoBehaviour {
         if (!playerController.HasPlayerJumped())
         {
             // Register when the button is held to increase amount of cord
-            if (InputManager.instance.GetButtonForPlayer(playerController.GetPlayerNumber(), "A"))
+            /*if (InputManager.instance.GetButtonForPlayer(playerController.GetPlayerNumber(), "A"))
             {
-                playerController.AddValueToScore(Time.deltaTime * fillSpeedPercent * MiniGameManager.Instance.totalCordLength);
+                playerController.AddValueToScore(Time.deltaTime * fillSpeedPercentHold * MiniGameManager.Instance.totalCordLength);
             }
             else
             {
-                playerController.AddValueToScore(-(Time.deltaTime * reductionSpeedPercent * MiniGameManager.Instance.totalCordLength));
-            }
+                playerController.AddValueToScore(-(Time.deltaTime * reductionSpeedPercentHold * MiniGameManager.Instance.totalCordLength));
+            }*/
 
             // Register when the button is tapped to increase the amount of cord.
-            /*if (InputManager.instance.GetButtonDownForPlayer(playerController.GetPlayerNumber(), "A"))
+            if (InputManager.instance.GetButtonDownForPlayer(playerController.GetPlayerNumber(), "A"))
             {
-                playerController.AddValueToScore(fillSpeed);
+                playerController.AddValueToScore(fillSpeedPercentSpam);
             }
             else
             {
-                playerController.AddValueToScore(-(Time.deltaTime * reductionSpeed));
-            }*/
+                playerController.AddValueToScore(-(Time.deltaTime * reductionSpeedPercentSpam * MiniGameManager.Instance.totalCordLength));
+            }
         }
     }
 }
