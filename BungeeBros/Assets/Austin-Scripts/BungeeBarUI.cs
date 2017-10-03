@@ -56,7 +56,7 @@ public class BungeeBarUI : MonoBehaviour
         playerSelection = Mathf.Clamp(playerSelection, min, max);
 
         // Calculate the percentage the bar will be filled, and multiply that by the full scale value to get the proper representation
-        float scaleFactor = (playerSelection / max) * FULL_BAR_SCALE_FACTOR;
+        float scaleFactor = ((playerSelection - min) / (max - min)) * FULL_BAR_SCALE_FACTOR;
 
         // Represent the selection on the bar
         barScaler.transform.localScale = new Vector3(scaleFactor, barScaler.transform.localScale.y, 1);

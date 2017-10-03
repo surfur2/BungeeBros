@@ -147,6 +147,17 @@ public class BungeeCameraController : MonoBehaviour
         winnerIndex = MiniGameManager.Instance.Winner;
         furthestIndex = MiniGameManager.Instance.FurthestIndex;
 
+        if (winnerIndex == -1)
+        {
+            winnerDisplayText.text = "Draw!";
+            winnerDisplayText.color = Color.yellow;
+        }
+        else
+        {
+            winnerDisplayText.text = "Winner!";
+            winnerDisplayText.color = Color.green;
+        }
+
         Vector3 camPos = transform.position;
         camPos.y = MiniGameManager.Instance.Players[furthestIndex - 1].gameObject.transform.position.y;
 
@@ -160,16 +171,16 @@ public class BungeeCameraController : MonoBehaviour
         if (winnerIndex == -1)
         {
             currentCameraState = BungeeCameraStates.WaitAtBottom;
-            winnerDisplayText.text = "Draw!";
-            winnerDisplayText.color = Color.yellow;
             StartCoroutine("TurnOnTextAfterSeconds", timeToShowWinnerText);
         }
         else if (camPos.y <= levelGenerator.WaterObject.transform.position.y)
         {
-            currentCameraState = BungeeCameraStates.ChaseWinner;
-            winnerDisplayText.text = "Winner!";
-            winnerDisplayText.color = Color.green;
+            currentCameraState = BungeeCameraStates.ChaseWinner; 
             timer = 0;
+        }
+        else if (MiniGameManager.Instance.PlayersReachedFinalDestination())
+        {
+            StartCoroutine("TurnOnTextAfterSeconds", timeToShowWinnerText);
         }
     }
 

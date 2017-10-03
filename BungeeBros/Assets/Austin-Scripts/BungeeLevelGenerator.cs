@@ -77,6 +77,7 @@ public class BungeeLevelGenerator : MonoBehaviour
         // Create bridge
         bridgeObject = Instantiate(bridgePrefab);
         bridgeObject.transform.parent = worldContainer.transform;
+        bridgeObject.GetComponentInChildren<TextMesh>().text = "Distance:\n" + (int)(height * Globals.UNITY_UNIT_TO_METERS) + " m";
 
         float bridgeSpriteHeight = bridgeObject.GetComponent<SpriteRenderer>().bounds.extents.y * 2;
 

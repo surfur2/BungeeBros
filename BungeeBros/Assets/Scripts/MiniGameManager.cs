@@ -18,6 +18,7 @@ public class MiniGameManager : MonoBehaviour
 
     private static MiniGameManager _instance = null;
     private List<PlayerController> players = new List<PlayerController>();
+    private List<bool> playersReachedRestingLocation = new List<bool>();
     private TeamManager teamMan;
     private BungeeLevelGenerator levelGen;
     private BungeeUIManager uiManager;
@@ -283,5 +284,21 @@ public class MiniGameManager : MonoBehaviour
         }
 
         return currentMaxPlayer;
+    }
+
+    // Get if the players have all finished bouncing and jumping
+    public bool PlayersReachedFinalDestination()
+    {
+        bool haveAllReachedBottom = true;
+
+        foreach (PlayerController player in players)
+        {
+            haveAllReachedBottom = player.HasPlayerReachedResting();
+
+            if (!haveAllReachedBottom)
+                break;
+        }
+
+        return haveAllReachedBottom;
     }
 }

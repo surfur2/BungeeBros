@@ -113,6 +113,12 @@ public class PlayerController : MonoBehaviour {
         myBungeeController.SetPlayerGuess(MiniGameManager.Instance.MaxCordLength);
         myRigidBody.simulated = false;
         transform.position = new Vector3(transform.position.x, transform.position.y - 1.1f, transform.position.z);
+        myBungeeController.SetPlayerHasReachedResting();
+    }
+
+    public bool HasPlayerReachedResting()
+    {
+        return myBungeeController.HasPlayerReachedRestingLocation();
     }
 
     private void ChangeToForwardHarness()
