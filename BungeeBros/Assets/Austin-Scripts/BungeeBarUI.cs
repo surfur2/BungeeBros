@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameUtilities;
 
 public class BungeeBarUI : MonoBehaviour
 {
@@ -49,8 +50,11 @@ public class BungeeBarUI : MonoBehaviour
     public void SetBarRepresentation(float playerSelection, float min, float max)
     {
         //Set displayed min and max
-        lowText.text = min.ToString();
-        highText.text = max.ToString();
+        float scaledMin = Mathf.Floor((min * Globals.UNITY_UNIT_TO_METERS)/10) * 10;
+        float scaledMax = Mathf.Ceil((max * Globals.UNITY_UNIT_TO_METERS) /100) * 100;
+
+        lowText.text = scaledMin.ToString();
+        highText.text = scaledMax.ToString();
 
         // Clamp the selection between the min and max
         playerSelection = Mathf.Clamp(playerSelection, min, max);

@@ -78,7 +78,8 @@ public class MiniGameManager : MonoBehaviour
             countdownTimer += Time.deltaTime;
             if (countdownTimer >= RoundTimer && !jumped)
             {
-                winner = GetWinner_Balance1();
+                // winner = GetWinner_Balance1();
+                winner = GetWinner_Balance2();
                 furthestIndex = GetMaxCordPlayer();
 
                 // Tell camera to begin chasing the furthest jumper.
